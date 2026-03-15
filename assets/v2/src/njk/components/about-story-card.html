@@ -1,0 +1,23 @@
+{% macro aboutStoryCard(props = {}) %}
+    {% set props = {
+        image: props.image | default(""),
+        class: props.class | default(""),
+        imageClass: props.imageClass | default(""),
+        attrs: props.attrs | default({})
+    } %}
+    <div
+        class="{{ props.class | twMerge('media-card card relative overflow-hidden') }}"
+        {{ props.attrs | renderAttrs }}
+    >
+        {% if props.image %}
+            <div class="absolute inset-0">
+                <img
+                    src="{{ props.image }}"
+                    alt=""
+                    class="{{ props.imageClass | twMerge('size-full object-contain object-center') }}"
+                    loading="lazy"
+                />
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

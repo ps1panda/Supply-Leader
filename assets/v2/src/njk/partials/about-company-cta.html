@@ -1,0 +1,22 @@
+{% from "components/button.html" import button %}
+
+<section class="mx-auto mt-5 w-[min(calc(100%-40px),var(--spacing-container))] cta-panel text-center">
+    <img
+        src="../../img/about-company/cta-panel.png"
+        alt=""
+        class="absolute inset-0 size-full object-cover"
+        loading="lazy"
+    />
+    <div class="relative z-10 mx-auto max-w-[328px] space-y-5 md:max-w-[600px] xl:w-[800px] xl:max-w-none xl:space-y-10">
+        <h2 class="heading-cta">
+            Start a multi-million business from a scratch
+        </h2>
+        <div class="text-body-muted space-y-2 md:text-base xl:text-[20px]">
+            <p>Create a capitalization business that you can attract investors or sell.</p>
+            <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
+        </div>
+        {% call button({ class: "button-compact-md btn-sm mx-auto xl:btn-lg" }) %}
+            Try now for $99
+        {% endcall %}
+    </div>
+</section>

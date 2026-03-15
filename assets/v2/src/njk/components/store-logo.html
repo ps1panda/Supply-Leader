@@ -1,0 +1,19 @@
+{% macro storeLogo(props = {}) %}
+    {% set props = {
+        store: props.store | default("App Store"),
+        class: props.class | default(""),
+        attrs: props.attrs | default({})
+    } %}
+    {% set logoSrc = '../../img/footer/app-logo-app-store.svg' if props.store == 'App Store' else '../../img/footer/app-logo-google-play.svg' %}
+    <div
+        class="{{ props.class | twMerge('store-badge') }}"
+        {{ props.attrs | renderAttrs | safe }}
+    >
+        <img
+            src="{{ logoSrc }}"
+            alt="{{ props.store }}"
+            class="block size-full object-contain"
+            loading="lazy"
+        />
+    </div>
+{% endmacro %}

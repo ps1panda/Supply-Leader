@@ -1,0 +1,25 @@
+{
+  "name": "supply-leader-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.9",
+    "chart.js": "^4.5.0",
+    "nunjucks": "^3.2.4",
+    "swiper": "^12.0.3",
+    "tailwind-merge": "^3.3.1",
+    "tippy.js": "^6.3.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "@vituum/vite-plugin-nunjucks": "^1.1.0",
+    "tailwindcss": "^4.1.12",
+    "vite": "^6.4.1"
+  }
+}

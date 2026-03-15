@@ -1,0 +1,140 @@
+{% from "components/about-story-card.html" import aboutStoryCard %}
+{% from "components/button.html" import button %}
+
+{% set stories = [
+    {
+        index: "1 of 6",
+        title: "A variety of options for finding suppliers",
+        image: "../../img/about-company/story-1.png",
+        text: [
+            "Our prices are the lowest, you will not be able to find cheaper anywhere. And if you find - please write to us and get a nice bonus from us, we are constantly looking for the best conditions.",
+            "You will have unlimited access to the largest database of manufacturers, more than 100 thousand manufacturers.",
+            "We do not have a physical warehouse where you could come and pick up products, since we only have centers where we accept goods from manufacturers for you, check the quality and make the necessary stickers according to your requests."
+        ]
+    },
+    {
+        index: "2 of 6",
+        title: "The most convenient product research system",
+        image: "../../img/about-company/story-2.png",
+        reverse: true,
+        text: [
+            "We have studied all existing services for searching and selecting profitable products and not one of them can provide high-quality analytics and supply wholesale goods at the same time.",
+            "We have applied the experience of other companies in product analytics and we have managed to combine this with our largest database of manufacturers, which allows us to find new profitable products to launch in a matter of minutes, if not seconds."
+        ]
+    },
+    {
+        index: "3 of 6",
+        title: "The most flexible customers care department",
+        image: "../../img/about-company/story-3.png",
+        text: [
+            "The greatest motivation and growth points for us are the feedback from our beloved customers. This is why we strive to be closer and closer to you and provide convenient and fast ways to communicate with us.",
+            "Online chat will allow you to get answers to important questions from us in seconds. A mobile application for iPhone - always at hand, as well as standard support methods, such as asking a question to the factory on the website, or by email.",
+            "We are always glad to hear from you and receive processed communications. It is you who help us become better."
+        ]
+    },
+    {
+        index: "4 of 6",
+        title: "Original US-based branded products",
+        image: "../../img/about-company/story-4.png",
+        reverse: true,
+        text: [
+            "We are constantly working on expanding the manufacturer base and are introducing a new function for searching 100% original manufacturers for you in the Enterprise subscription tariff.",
+            "You will no longer have to order samples from a dozen similar factories, our manager will check the reliability and originality of the goods from the supplier himself."
+        ]
+    },
+    {
+        index: "5 of 6",
+        title: "Legal support for Amazon sellers",
+        image: "../../img/about-company/story-5.png",
+        text: [
+            "We strive to cover as many needs of our customers as possible and we know that some of you have difficulties with paperwork for seller accounts.",
+            "That is why we have created a legal department that will work with you on paperwork issues.",
+            "For legal assistance in registering Amazon, eBay, Etsy, Walmart accounts, as well as assistance in analyzing the reasons for blocking and building a strategy for unblocking an account/listing, write to email legal@supplyleader.com."
+        ]
+    },
+    {
+        index: "6 of 6",
+        title: "Compliance Review - Built to Protect Your Business",
+        image: "../../img/about-company/story-6.png",
+        reverse: true,
+        text: [
+            "We don't just provide access to suppliers - every product is reviewed before it can be ordered.",
+            "As part of your subscription, all product requests go through a compliance and intellectual property (IP) check, including copyright, trademark, and platform policy risks.",
+            "In some cases, a product may be declined. This is part of the service designed to protect you from account suspensions, financial penalties, inventory confiscation, and legal issues - even if the product is widely available on other platforms."
+        ]
+    }
+] %}
+
+<section class="flex w-full flex-col gap-[60px] xl:gap-[100px] stories-shell">
+    {% for story in stories %}
+        <article
+            x-data="scrollReveal()"
+            class="story-row xl:gap-[100px] {{ 'xl:grid-cols-[940px_800px]' if story.reverse else 'xl:grid-cols-[800px_940px]' }}"
+        >
+            <div
+                x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d({{ '32px' if story.reverse else '-32px' }},0,0);'"
+                class="{{ 'xl:order-2' if story.reverse else '' }} w-full space-y-5 transition-all duration-700 ease-out md:space-y-6"
+                style="opacity:0; transform:translate3d({{ '32px' if story.reverse else '-32px' }},0,0);"
+            >
+                <div class="space-y-2">
+                    <p class="text-section-index md:text-[20px] md:tracking-[-0.2px] xl:text-[28px] xl:tracking-[-0.28px]">
+                        {{ story.index }}
+                    </p>
+                    <h2 class="heading-section-lg max-w-[800px] md:text-[30px] md:tracking-[-0.3px] md:leading-normal xl:text-[48px] xl:tracking-[-2.88px] xl:leading-none">
+                        {{ story.title }}
+                    </h2>
+                </div>
+                <div class="text-body-muted max-w-[800px] space-y-4 md:text-[12px] md:tracking-[-0.12px] xl:text-[20px] xl:tracking-[-0.2px] xl:leading-normal">
+                    {% for paragraph in story.text %}
+                        {% if story.index == '5 of 6' and loop.last %}
+                            <p>
+                                For legal assistance in registering Amazon, eBay, Etsy, Walmart accounts, as well
+                                as assistance in analyzing the reasons for blocking and building a strategy for
+                                unblocking an account/listing, write to email
+                                <strong class="font-bold text-text-primary">legal@supplyleader.com</strong>.
+                            </p>
+                        {% else %}
+                            <p>{{ paragraph }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div
+                x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d({{ '-32px' if story.reverse else '32px' }},0,0);'"
+                class="{{ 'xl:order-1' if story.reverse else '' }} w-full max-xl:mx-auto transition-all duration-700 ease-out"
+                style="opacity:0; transform:translate3d({{ '-32px' if story.reverse else '32px' }},0,0);"
+            >
+                {{ aboutStoryCard({
+                    image: story.image,
+                    class: 'rounded-card border border-border xl:w-full max-xl:mx-auto max-xl:max-w-[720px]'
+                }) }}
+            </div>
+        </article>
+    {% endfor %}
+
+    <article class="xl:grid-cols-1 cta-panel text-center">
+        <img
+            src="../../img/about-company/cta-panel.png"
+            alt=""
+            class="absolute inset-0 size-full object-cover"
+            loading="lazy"
+        />
+        <div
+            x-data="scrollReveal()"
+            x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d(0,-32px,0);'"
+            class="relative z-10 mx-auto max-w-[328px] space-y-5 transition-all duration-700 ease-out md:max-w-[600px] md:space-y-10 xl:w-[800px] xl:max-w-none"
+            style="opacity:0; transform:translate3d(0,-32px,0);"
+        >
+            <h2 class="heading-cta">
+                Start a multi-million business from a scratch
+            </h2>
+            <div class="text-body-muted space-y-2 md:text-[16px] md:tracking-[-0.16px] md:leading-[1.3] xl:text-[20px]">
+                <p>Create a capitalization business that you can attract investors or sell.</p>
+                <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
+            </div>
+            {% call button({ class: "button-compact-md btn-sm mx-auto xl:btn-lg" }) %}
+                Try now for $99
+            {% endcall %}
+        </div>
+    </article>
+</section>

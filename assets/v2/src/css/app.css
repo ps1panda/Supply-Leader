@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "./utilities.css";
+@source "../index.html";
+@source "../js/**/*.js";
+@source "../njk/**/*.html";
+@source "../njk/**/*.njk";
+
+@theme {
+  --color-brand: #2c41ff;
+  --color-brand-hover: #1a30e6;
+  --color-brand-light: #eff1ff;
+  --color-surface: #f8f8f8;
+  --color-surface-dark: #191919;
+  --color-surface-alt: #f0f0f0;
+  --color-border: #e6e6e6;
+  --color-border-light: #bfbfbf;
+  --color-text-primary: #1e1e1e;
+  --color-text-secondary: #5e5e5e;
+  --color-text-muted: #abaaaa;
+  --color-text-placeholder: #bfbfbf;
+  --radius-card: 20px;
+  --radius-panel: 40px;
+  --spacing-container: 1840px;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+  }
+
+  body {
+    margin: 0;
+    min-width: 360px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+}

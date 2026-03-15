@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title | default("Supply Leader") }}</title>
+        <meta name="description" content="{{ description | default('Supply Leader frontend') }}" />
+        <script type="module" src="/src/js/app.js"></script>
+    </head>
+    <body class="{{ bodyClass | default('bg-surface') }}">
+        {% block page %}{% endblock %}
+    </body>
+</html>

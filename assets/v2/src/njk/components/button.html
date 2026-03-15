@@ -1,0 +1,19 @@
+{% macro button(props = {}) %}
+    {% set props = {
+        color: props.color | default("brand"),
+        href: props.href | default(null),
+        type: props.type | default("button"),
+        class: props.class | default(""),
+        attrs: props.attrs | default({})
+    } %}
+    {% set tag = "a" if props.href else "button" %}
+    {% set colorClass = "btn-" + props.color %}
+    <{{ tag }}
+        {% if props.href %}href="{{ props.href }}"{% endif %}
+        {% if not props.href %}type="{{ props.type }}"{% endif %}
+        class="{{ props.class | twMerge(colorClass) }}"
+        {{ props.attrs | renderAttrs }}
+    >
+        {{ caller() }}
+    </{{ tag }}>
+{% endmacro %}

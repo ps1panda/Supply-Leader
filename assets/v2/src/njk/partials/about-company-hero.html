@@ -1,0 +1,23 @@
+{% from "components/button.html" import button %}
+
+<section class="w-full hero-panel space-y-6 md:space-y-10">
+    <div
+        x-data="reveal(0)"
+        x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d(-32px,0,0);'"
+        class="self-start space-y-4 transition-all duration-700 ease-out md:max-w-[600px] md:space-y-4 xl:max-w-[800px] xl:space-y-5"
+        style="opacity:0; transform:translate3d(-32px,0,0);"
+    >
+        <h1 class="heading-hero max-w-[328px] md:max-w-[600px] md:text-[48px] md:tracking-[-2.88px] md:leading-[1.2] xl:max-w-[800px]">
+            Helping e-commerce businesses since 2018
+        </h1>
+        <p class="text-hero-body max-w-[328px] md:max-w-[600px] xl:max-w-[800px]">
+            Our mission is to help e-commerce entrepreneurs find and deliver profitable products. We make a small
+            markup of only 5%, which is used to cover bank fees and currency conversion. We openly publish links to
+            stores and places where we purchase products for you and you always see the real lowest wholesale prices,
+            and we earn on subscriptions.
+        </p>
+    </div>
+    {% call button({ color: "white", class: "button-compact btn-sm border-0 rounded-md md:px-3 md:py-3 md:text-header-control xl:btn-lg" }) %}
+        Try now for $99
+    {% endcall %}
+</section>

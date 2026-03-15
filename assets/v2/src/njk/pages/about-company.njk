@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% set title = "About Company | Supply Leader" %}
+{% set description = "Supply Leader about company page" %}
+{% set bodyClass = "bg-surface-dark flex flex-col gap-5 py-5" %}
+
+{% block page %}
+    {% include "layouts/header.html" %}
+    <main class="flex-1">
+        {% include "partials/about-company-hero.html" %}
+        {% include "partials/about-company-stories.html" %}
+    </main>
+    {% include "layouts/footer.html" %}
+{% endblock %}

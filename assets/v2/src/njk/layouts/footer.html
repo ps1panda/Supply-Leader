@@ -1,0 +1,111 @@
+{% from "components/container.html" import container %}
+{% from "components/store-logo.html" import storeLogo %}
+{% from "components/svg-icon.html" import svgIcon %}
+
+{% call container({
+    tag: "footer",
+    class: "footer-shell py-4 text-white"
+}) %}
+    <div class="footer-links-grid xl:contents">
+        <div class="footer-block xl:order-2">
+            <p class="footer-title">Help pages</p>
+            <div class="footer-list">
+                <a href="#" class="block transition duration-200 hover:text-white">About Us</a>
+                <a href="#" class="block transition duration-200 hover:text-white">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="footer-block xl:order-3">
+            <p class="footer-title">Documents</p>
+            <div class="footer-list">
+                <a href="#" class="block transition duration-200 hover:text-white">Legal info</a>
+                <a href="#" class="block transition duration-200 hover:text-white">Privacy Policy</a>
+                <a href="#" class="block transition duration-200 hover:text-white">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-block xl:order-4">
+        <p class="footer-title">Follow us</p>
+        <div class="footer-social-list">
+            <a href="#" class="footer-social-link hover:text-white">
+                <span class="footer-social-icon">
+                    {{ svgIcon({ name: "facebook", class: "size-4 fill-none stroke-current" }) }}
+                </span>
+                <span>Facebook</span>
+            </a>
+            <a href="#" class="footer-social-link hover:text-white">
+                <span class="footer-social-icon">
+                    {{ svgIcon({ name: "instagram", class: "size-4 fill-none stroke-current" }) }}
+                </span>
+                <span>Instagram</span>
+            </a>
+            <a href="#" class="footer-social-link hover:text-white">
+                <span class="footer-social-icon">
+                    {{ svgIcon({ name: "x", class: "size-4 fill-none stroke-current" }) }}
+                </span>
+                <span>X (ex Twitter)</span>
+            </a>
+            <a href="#" class="footer-social-link hover:text-white">
+                <span class="footer-social-icon">
+                    {{ svgIcon({ name: "youtube", class: "size-4 fill-none stroke-current" }) }}
+                </span>
+                <span>YouTube</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-block xl:order-5">
+        <p class="footer-title">Contacts</p>
+        <div class="footer-list">
+            <a href="#" class="block transition duration-200 hover:text-white">Request call</a>
+            <a href="mailto:support@supplyleader.com" class="block transition duration-200 hover:text-white">
+                support@supplyleader.com
+            </a>
+            <p>5830 E 2nd St, Casper, WY 82609, USA</p>
+        </div>
+    </div>
+
+    <div class="footer-block xl:order-1">
+        <p class="footer-title max-w-[180px] leading-[1.35]">
+            Wholesale supply service in your mobile app.
+        </p>
+        <div class="footer-store-stack">
+            {{ storeLogo({
+                store: "App Store",
+                attrs: { 'aria-label': 'Download on the App Store' },
+                class: 'justify-start'
+            }) }}
+            {{ storeLogo({
+                store: "Google Play",
+                attrs: { 'aria-label': 'Get it on Google Play' },
+                class: 'justify-start'
+            }) }}
+        </div>
+    </div>
+
+        <div class="footer-block xl:order-6 xl:items-end">
+            <p class="footer-title">Payment Systems</p>
+            <div class="footer-payment-row">
+                <span class="payment-card payment-card-paypal">
+                    <img src="../../img/footer/paypal.svg" alt="PayPal" class="payment-logo-img payment-logo-paypal" loading="lazy" />
+                </span>
+                <span class="payment-card payment-card-visa">
+                    <img src="../../img/footer/visa.svg" alt="Visa" class="payment-logo-img payment-logo-visa" loading="lazy" />
+                </span>
+                <span class="payment-card payment-card-discover">
+                    <img src="../../img/footer/discover.svg" alt="Discover" class="payment-logo-img payment-logo-discover" loading="lazy" />
+                </span>
+                <span class="payment-card payment-card-amex">
+                    <img src="../../img/footer/amex.svg" alt="American Express" class="payment-logo-img payment-logo-amex" loading="lazy" />
+                </span>
+                <span class="payment-card payment-card-mastercard">
+                    <img src="../../img/footer/mastercard.svg" alt="MasterCard" class="payment-logo-img-sm payment-logo-mastercard" loading="lazy" />
+                </span>
+            </div>
+        </div>
+
+    <p class="footer-copy xl:order-7 xl:col-start-6 xl:justify-self-end xl:text-right">
+        &copy; 2018 - 2025 Supply Leader. All rights reserved.
+    </p>
+{% endcall %}
