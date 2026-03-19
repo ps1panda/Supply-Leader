@@ -4,20 +4,20 @@
 
 {% call container({
     tag: "footer",
-    class: "footer-shell py-4 text-white"
+    class: "relative z-0 grid gap-6 py-4 text-white md:grid-cols-3 md:items-start md:gap-y-8 md:gap-x-8 xl:sticky xl:bottom-0 xl:grid-cols-[1.2fr_.8fr_.8fr_1fr_1.2fr_1.1fr] xl:gap-5 xl:gap-x-8"
 }) %}
-    <div class="footer-links-grid xl:contents">
-        <div class="footer-block xl:order-2">
-            <p class="footer-title">Help pages</p>
-            <div class="footer-list">
+    <div class="grid grid-cols-2 gap-6 md:contents xl:contents">
+        <div class="grid gap-2.5 md:col-start-1 md:row-start-1 xl:order-2 xl:col-auto xl:row-auto">
+            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Help pages</p>
+            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">About Us</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Contact Us</a>
             </div>
         </div>
 
-        <div class="footer-block xl:order-3">
-            <p class="footer-title">Documents</p>
-            <div class="footer-list">
+        <div class="grid gap-2.5 md:col-start-2 md:row-start-1 xl:order-3 xl:col-auto xl:row-auto">
+            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Documents</p>
+            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">Legal info</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Privacy Policy</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Cookie Policy</a>
@@ -25,29 +25,29 @@
         </div>
     </div>
 
-    <div class="footer-block xl:order-4">
-        <p class="footer-title">Follow us</p>
-        <div class="footer-social-list">
-            <a href="#" class="footer-social-link hover:text-white">
-                <span class="footer-social-icon">
+    <div class="grid gap-2.5 md:col-start-1 md:row-start-2 xl:order-4 xl:col-auto xl:row-auto">
+        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Follow us</p>
+        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+            <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
+                <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                     {{ svgIcon({ name: "facebook", class: "size-4 fill-none stroke-current" }) }}
                 </span>
                 <span>Facebook</span>
             </a>
-            <a href="#" class="footer-social-link hover:text-white">
-                <span class="footer-social-icon">
+            <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
+                <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                     {{ svgIcon({ name: "instagram", class: "size-4 fill-none stroke-current" }) }}
                 </span>
                 <span>Instagram</span>
             </a>
-            <a href="#" class="footer-social-link hover:text-white">
-                <span class="footer-social-icon">
+            <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
+                <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                     {{ svgIcon({ name: "x", class: "size-4 fill-none stroke-current" }) }}
                 </span>
                 <span>X (ex Twitter)</span>
             </a>
-            <a href="#" class="footer-social-link hover:text-white">
-                <span class="footer-social-icon">
+            <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
+                <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                     {{ svgIcon({ name: "youtube", class: "size-4 fill-none stroke-current" }) }}
                 </span>
                 <span>YouTube</span>
@@ -55,9 +55,9 @@
         </div>
     </div>
 
-    <div class="footer-block xl:order-5">
-        <p class="footer-title">Contacts</p>
-        <div class="footer-list">
+    <div class="grid gap-2.5 md:col-start-3 md:row-start-1 xl:order-5 xl:col-auto xl:row-auto">
+        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Contacts</p>
+        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
             <a href="#" class="block transition duration-200 hover:text-white">Request call</a>
             <a href="mailto:support@supplyleader.com" class="block transition duration-200 hover:text-white">
                 support@supplyleader.com
@@ -66,46 +66,48 @@
         </div>
     </div>
 
-    <div class="footer-block xl:order-1">
-        <p class="footer-title max-w-[180px] leading-[1.35]">
-            Wholesale supply service in your mobile app.
-        </p>
-        <div class="footer-store-stack">
-            {{ storeLogo({
-                store: "App Store",
-                attrs: { 'aria-label': 'Download on the App Store' },
-                class: 'justify-start'
-            }) }}
-            {{ storeLogo({
-                store: "Google Play",
-                attrs: { 'aria-label': 'Get it on Google Play' },
-                class: 'justify-start'
-            }) }}
-        </div>
-    </div>
-
-        <div class="footer-block xl:order-6 xl:items-end">
-            <p class="footer-title">Payment Systems</p>
-            <div class="footer-payment-row">
-                <span class="payment-card payment-card-paypal">
-                    <img src="../../img/footer/paypal.svg" alt="PayPal" class="payment-logo-img payment-logo-paypal" loading="lazy" />
-                </span>
-                <span class="payment-card payment-card-visa">
-                    <img src="../../img/footer/visa.svg" alt="Visa" class="payment-logo-img payment-logo-visa" loading="lazy" />
-                </span>
-                <span class="payment-card payment-card-discover">
-                    <img src="../../img/footer/discover.svg" alt="Discover" class="payment-logo-img payment-logo-discover" loading="lazy" />
-                </span>
-                <span class="payment-card payment-card-amex">
-                    <img src="../../img/footer/amex.svg" alt="American Express" class="payment-logo-img payment-logo-amex" loading="lazy" />
-                </span>
-                <span class="payment-card payment-card-mastercard">
-                    <img src="../../img/footer/mastercard.svg" alt="MasterCard" class="payment-logo-img-sm payment-logo-mastercard" loading="lazy" />
-                </span>
+    <div class="grid grid-cols-2 items-start gap-6 md:contents xl:contents">
+        <div class="grid gap-2.5 md:col-start-2 md:row-start-2 xl:order-1 xl:col-auto xl:row-auto">
+            <p class="max-w-[var(--spacing-footer-copy-max)] [font-size:var(--text-size-12)] font-semibold leading-[1.35] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">
+                Wholesale supply service in your mobile app.
+            </p>
+            <div class="grid gap-2 md:flex md:flex-wrap md:items-start md:gap-3 xl:grid xl:gap-[var(--spacing-payment-gap)]">
+                {{ storeLogo({
+                    store: "App Store",
+                    attrs: { 'aria-label': 'Download on the App Store' },
+                    class: 'justify-start'
+                }) }}
+                {{ storeLogo({
+                    store: "Google Play",
+                    attrs: { 'aria-label': 'Get it on Google Play' },
+                    class: 'justify-start'
+                }) }}
             </div>
         </div>
 
-    <p class="footer-copy xl:order-7 xl:col-start-6 xl:justify-self-end xl:text-right">
+        <div class="grid gap-2.5 md:col-start-3 md:row-start-2 xl:order-6 xl:items-end xl:col-auto xl:row-auto">
+            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Payment Systems</p>
+            <div class="grid w-[var(--spacing-payment-systems-mobile)] grid-cols-2 gap-[var(--spacing-payment-gap)] xl:flex xl:w-[var(--spacing-payment-systems-desktop)] xl:flex-wrap xl:justify-start">
+                <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
+                    <img src="../../img/footer/paypal.svg" alt="PayPal" class="block h-[var(--spacing-payment-logo-paypal-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
+                </span>
+                <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
+                    <img src="../../img/footer/visa.svg" alt="Visa" class="block h-[var(--spacing-payment-logo-visa-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
+                </span>
+                <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
+                    <img src="../../img/footer/discover.svg" alt="Discover" class="block h-[var(--spacing-payment-logo-discover-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
+                </span>
+                <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
+                    <img src="../../img/footer/amex.svg" alt="American Express" class="block h-[var(--spacing-payment-logo-amex-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
+                </span>
+                <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
+                    <img src="../../img/footer/mastercard.svg" alt="MasterCard" class="block h-[var(--spacing-payment-logo-mastercard-height)] w-[var(--spacing-payment-logo-mastercard-width)]" loading="lazy" />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <p class="[font-size:var(--text-size-10)] text-white/60 md:col-start-3 md:row-start-3 md:justify-self-end md:text-right md:text-xs xl:order-7 xl:col-start-6 xl:row-auto xl:text-xs xl:tracking-[var(--tracking-neg-012px)]">
         &copy; 2018 - 2025 Supply Leader. All rights reserved.
     </p>
 {% endcall %}

@@ -65,26 +65,26 @@
     }
 ] %}
 
-<section class="flex w-full flex-col gap-[60px] xl:gap-[100px] stories-shell">
+<section class="flex w-full flex-col gap-[var(--spacing-stories-gap-mobile)] rounded-[var(--radius-panel)] border border-border bg-surface px-4 py-8 shadow-[-0.125rem_-0.125rem_2.3625rem_0_rgba(248,248,248,.2)] md:px-5 md:py-5 xl:gap-[var(--spacing-stories-gap-desktop)] xl:p-10">
     {% for story in stories %}
         <article
-            x-data="scrollReveal()"
-            class="story-row xl:gap-[100px] {{ 'xl:grid-cols-[940px_800px]' if story.reverse else 'xl:grid-cols-[800px_940px]' }}"
+            x-data="{ shown: false }"
+            x-intersect.once="shown = true"
+            class="grid items-center gap-6 xl:gap-[var(--spacing-stories-gap-desktop)] {{ 'xl:grid-cols-[var(--spacing-story-media-col)_var(--spacing-story-text-col)]' if story.reverse else 'xl:grid-cols-[var(--spacing-story-text-col)_var(--spacing-story-media-col)]' }}"
         >
             <div
-                x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d({{ '32px' if story.reverse else '-32px' }},0,0);'"
-                class="{{ 'xl:order-2' if story.reverse else '' }} w-full space-y-5 transition-all duration-700 ease-out md:space-y-6"
-                style="opacity:0; transform:translate3d({{ '32px' if story.reverse else '-32px' }},0,0);"
+                :class="shown ? 'translate-x-0 opacity-100 blur-0' : '{{ 'translate-x-6' if story.reverse else '-translate-x-6' }} opacity-0 blur-sm'"
+                class="{{ 'xl:order-2' if story.reverse else '' }} w-full space-y-5 transition duration-700 md:space-y-6"
             >
                 <div class="space-y-2">
-                    <p class="text-section-index md:text-[20px] md:tracking-[-0.2px] xl:text-[28px] xl:tracking-[-0.28px]">
+                    <p class="[font-size:var(--text-size-16)] font-semibold tracking-[-0.01em] text-text-muted md:[font-size:var(--text-size-20)] md:tracking-[var(--tracking-neg-02px)] xl:[font-size:var(--text-size-28)] xl:tracking-[var(--tracking-neg-028px)]">
                         {{ story.index }}
                     </p>
-                    <h2 class="heading-section-lg max-w-[800px] md:text-[30px] md:tracking-[-0.3px] md:leading-normal xl:text-[48px] xl:tracking-[-2.88px] xl:leading-none">
+                    <h2 class="max-w-[var(--spacing-story-text-col)] [font-size:var(--text-size-32)] font-medium leading-[1.02] tracking-[-0.06em] text-text-primary md:[font-size:var(--text-size-30)] md:leading-normal md:tracking-[var(--tracking-neg-03px)] xl:[font-size:var(--text-size-48)] xl:leading-none xl:tracking-[var(--tracking-neg-288px)]">
                         {{ story.title }}
                     </h2>
                 </div>
-                <div class="text-body-muted max-w-[800px] space-y-4 md:text-[12px] md:tracking-[-0.12px] xl:text-[20px] xl:tracking-[-0.2px] xl:leading-normal">
+                <div class="max-w-[var(--spacing-story-text-col)] space-y-4 [font-size:var(--text-size-13)] leading-[1.42] text-text-secondary md:[font-size:var(--text-size-12)] md:tracking-[var(--tracking-neg-012px)] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
                     {% for paragraph in story.text %}
                         {% if story.index == '5 of 6' and loop.last %}
                             <p>
@@ -100,19 +100,22 @@
                 </div>
             </div>
             <div
-                x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d({{ '-32px' if story.reverse else '32px' }},0,0);'"
-                class="{{ 'xl:order-1' if story.reverse else '' }} w-full max-xl:mx-auto transition-all duration-700 ease-out"
-                style="opacity:0; transform:translate3d({{ '-32px' if story.reverse else '32px' }},0,0);"
+                :class="shown ? 'translate-x-0 opacity-100 blur-0' : '{{ '-translate-x-6' if story.reverse else 'translate-x-6' }} opacity-0 blur-sm'"
+                class="{{ 'xl:order-1' if story.reverse else '' }} w-full transition duration-700 max-xl:mx-auto"
             >
                 {{ aboutStoryCard({
                     image: story.image,
-                    class: 'rounded-card border border-border xl:w-full max-xl:mx-auto max-xl:max-w-[720px]'
+                    class: 'aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]'
                 }) }}
             </div>
         </article>
     {% endfor %}
 
-    <article class="xl:grid-cols-1 cta-panel text-center">
+    <article
+        x-data="{ shown: false }"
+        x-intersect.once="shown = true"
+        class="relative overflow-clip rounded-[var(--radius-card)] border border-border bg-brand-light px-4 py-8 text-center md:px-8 md:py-10 xl:px-10 xl:py-[var(--spacing-cta-padding-y-xl)]"
+    >
         <img
             src="../../img/about-company/cta-panel.png"
             alt=""
@@ -120,19 +123,22 @@
             loading="lazy"
         />
         <div
-            x-data="scrollReveal()"
-            x-bind:style="shown ? 'opacity:1; transform:translate3d(0,0,0);' : 'opacity:0; transform:translate3d(0,-32px,0);'"
-            class="relative z-10 mx-auto max-w-[328px] space-y-5 transition-all duration-700 ease-out md:max-w-[600px] md:space-y-10 xl:w-[800px] xl:max-w-none"
-            style="opacity:0; transform:translate3d(0,-32px,0);"
+            :class="shown ? 'translate-y-0 opacity-100 blur-0' : 'translate-y-4 opacity-0 blur-sm'"
+            class="relative z-10 mx-auto max-w-[var(--spacing-content-mobile)] space-y-5 transition duration-700 md:max-w-[var(--spacing-content-tablet)] md:space-y-10 xl:w-[var(--spacing-content-desktop)] xl:max-w-none"
         >
-            <h2 class="heading-cta">
+            <h2 class="[font-size:var(--text-size-36)] font-medium leading-[1.02] tracking-[-0.06em] text-text-primary md:[font-size:var(--text-size-48)] xl:[font-size:var(--text-size-64)] xl:leading-[1.2]">
                 Start a multi-million business from a scratch
             </h2>
-            <div class="text-body-muted space-y-2 md:text-[16px] md:tracking-[-0.16px] md:leading-[1.3] xl:text-[20px]">
+            <div class="space-y-2 [font-size:var(--text-size-13)] leading-[1.42] text-text-secondary md:[font-size:var(--text-size-16)] md:leading-[1.3] md:tracking-[var(--tracking-neg-016px)] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
                 <p>Create a capitalization business that you can attract investors or sell.</p>
                 <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
             </div>
-            {% call button({ class: "button-compact-md btn-sm mx-auto xl:btn-lg" }) %}
+            {% call button({
+                class: "button-compact-md btn-sm mx-auto xl:btn-lg",
+                attrs: {
+                    "@click": "$dispatch('open-modal')"
+                }
+            }) %}
                 Try now for $99
             {% endcall %}
         </div>

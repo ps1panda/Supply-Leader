@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+    {% from "components/dialog-modal.html" import dialogModal %}
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,18 @@
         <meta name="description" content="{{ description | default('Supply Leader frontend') }}" />
         <script type="module" src="/src/js/app.js"></script>
     </head>
-    <body class="{{ bodyClass | default('bg-surface') }}">
+    <body
+        x-data="dialogModal()"
+        @open-modal.window="open()"
+        @keydown.escape.window="close()"
+        :class="{ 'overflow-hidden': isOpen }"
+        class="{{ bodyClass | default('bg-surface') }}"
+    >
         {% block page %}{% endblock %}
+
+        {{ dialogModal({
+            title: "Модалка",
+            body: "Модалка"
+        }) }}
     </body>
 </html>

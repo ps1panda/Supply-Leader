@@ -3,59 +3,59 @@
 
 {% call container({
     tag: "header",
-    class: "flex items-center gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-6 xl:gap-10"
+    class: "flex items-center justify-between gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-6 xl:gap-10"
 }) %}
     <a href="#" class="shrink-0">
         <img
             src="../../img/header/logo-supply-leader.png"
             alt="Supply Leader"
-            class="w-[82px]"
+            class="w-[var(--spacing-header-logo)]"
             loading="eager"
         />
     </a>
 
-    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[760px] md:justify-self-center xl:max-w-[820px]">
-        <button type="button" class="btn-gray text-header-control h-9 px-3 shrink-0">
+    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[var(--spacing-header-search-md)] md:justify-self-center xl:max-w-[var(--spacing-header-search-xl)]">
+        <button type="button" class="btn-gray h-9 shrink-0 text-sm font-medium leading-none tracking-[-0.01em]">
             All categories
         </button>
-        <label class="header-search-shell h-9 min-w-0 flex-1">
+        <label class="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[var(--spacing-radius-control)] border p-2 [background-color:color-mix(in_srgb,white_20%,transparent)] [border-color:color-mix(in_srgb,white_10%,transparent)]">
             {{ svgIcon({ name: "search", class: "size-5 shrink-0 stroke-current text-white/80" }) }}
             <input
                 type="search"
                 placeholder="Search"
-                class="text-header-search w-full border-0 bg-transparent p-0 text-white outline-none placeholder:text-white/60"
+                class="w-full border-0 bg-transparent p-0 text-sm leading-none tracking-[-0.01em] text-white outline-none placeholder:text-white/60"
             />
-            <span class="flex items-center justify-center rounded-[4px] bg-white/10 p-1 text-white/80">
+            <span class="flex items-center justify-center rounded-[var(--spacing-radius-control-sm)] bg-white/10 p-1 text-white/80">
                 {{ svgIcon({ name: "camera", class: "size-4 stroke-current" }) }}
             </span>
         </label>
     </div>
 
     <div class="flex items-center gap-2.5 shrink-0">
-        <a href="#" class="header-icon-button max-md:inline-flex hidden hover:bg-white/10 hover:text-white" aria-label="Open search">
-            {{ svgIcon({ name: "search", class: "size-[15px] stroke-current" }) }}
+        <a href="#" class="hidden items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white max-md:inline-flex" aria-label="Open search">
+            {{ svgIcon({ name: "search", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
         </a>
         <nav class="hidden items-center gap-2.5 text-white/80 md:flex">
-            <a href="#" class="header-icon-button hover:bg-white/10 hover:text-white">
-                {{ svgIcon({ name: "box", class: "size-[15px] stroke-current" }) }}
+            <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white">
+                {{ svgIcon({ name: "box", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
             </a>
-            <a href="#" class="header-icon-button hover:bg-white/10 hover:text-white">
-                {{ svgIcon({ name: "heart", class: "size-[15px] stroke-current" }) }}
+            <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white">
+                {{ svgIcon({ name: "heart", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
             </a>
-            <a href="#" class="header-icon-button hover:bg-white/10 hover:text-white">
-                {{ svgIcon({ name: "cart", class: "size-[15px] stroke-current" }) }}
+            <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white">
+                {{ svgIcon({ name: "cart", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
             </a>
         </nav>
         <div class="flex items-center">
-            <span class="header-avatar">
+            <span class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] border bg-brand px-2 py-2.5 text-sm font-medium leading-none tracking-[-0.01em] text-white [border-color:color-mix(in_srgb,white_50%,transparent)]">
                 CN
             </span>
-            <span class="text-header-control hidden rounded-md px-2 py-2 text-white xl:inline-flex">
+            <span class="hidden rounded-md px-2 py-2 text-sm font-medium leading-none tracking-[-0.01em] text-white xl:inline-flex">
                 Company Name
             </span>
         </div>
-        <a href="#" class="header-icon-button inline-flex hover:bg-white/10 hover:text-white xl:hidden" aria-label="Open menu">
-            {{ svgIcon({ name: "menu", class: "size-[15px] stroke-current" }) }}
+        <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white xl:hidden" aria-label="Open menu">
+            {{ svgIcon({ name: "menu", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
         </a>
     </div>
 {% endcall %}

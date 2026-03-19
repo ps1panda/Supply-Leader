@@ -6,7 +6,7 @@
     } %}
     {% set logoSrc = '../../img/footer/app-logo-app-store.svg' if props.store == 'App Store' else '../../img/footer/app-logo-google-play.svg' %}
     <div
-        class="{{ props.class | twMerge('store-badge') }}"
+        class="{{ props.class | twMerge('block h-10 w-[var(--spacing-store-badge-width)] shrink-0 overflow-hidden') }}"
         {{ props.attrs | renderAttrs | safe }}
     >
         <img

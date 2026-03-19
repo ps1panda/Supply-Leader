@@ -12,7 +12,7 @@
         {% if props.href %}href="{{ props.href }}"{% endif %}
         {% if not props.href %}type="{{ props.type }}"{% endif %}
         class="{{ props.class | twMerge(colorClass) }}"
-        {{ props.attrs | renderAttrs }}
+        {{ props.attrs | renderAttrs | safe }}
     >
         {{ caller() }}
     </{{ tag }}>

@@ -16,8 +16,8 @@ function renderAttrs(attrs = {}) {
         return key;
       }
 
-      const normalized = String(value).replaceAll('"', "&quot;");
-      return `${key}="${normalized}"`;
+      const normalized = String(value).replaceAll("'", "&#39;");
+      return `${key}='${normalized}'`;
     })
     .join(" ");
 }

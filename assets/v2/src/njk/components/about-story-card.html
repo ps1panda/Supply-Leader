@@ -6,7 +6,7 @@
         attrs: props.attrs | default({})
     } %}
     <div
-        class="{{ props.class | twMerge('media-card card relative overflow-hidden') }}"
+        class="{{ props.class | twMerge('card relative overflow-hidden') }}"
         {{ props.attrs | renderAttrs }}
     >
         {% if props.image %}

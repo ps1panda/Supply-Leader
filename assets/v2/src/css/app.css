@@ -14,13 +14,72 @@
   --color-surface-alt: #f0f0f0;
   --color-border: #e6e6e6;
   --color-border-light: #bfbfbf;
-  --color-text-primary: #1e1e1e;
+  --color-text-primary: #000000;
   --color-text-secondary: #5e5e5e;
   --color-text-muted: #abaaaa;
   --color-text-placeholder: #bfbfbf;
+  --color-danger: #d92d20;
+  --color-success-bg: #ecfdf3;
+  --color-success-text: #027a48;
+  --color-warning-bg: #fffaeb;
+  --color-warning-text: #b54708;
+  --color-error-bg: #fef3f2;
+  --color-error-text: #b42318;
   --radius-card: 20px;
   --radius-panel: 40px;
+  --spacing-radius-control: 8px;
+  --spacing-radius-control-sm: 4px;
   --spacing-container: 1840px;
+  --spacing-gap-button: 10px;
+  --spacing-header-logo: 82px;
+  --spacing-header-search-md: 760px;
+  --spacing-header-search-xl: 820px;
+  --spacing-icon-sm: 15px;
+  --spacing-store-badge-width: 120px;
+  --spacing-content-mobile: 328px;
+  --spacing-content-tablet: 600px;
+  --spacing-content-desktop: 800px;
+  --spacing-story-media-mobile: 720px;
+  --spacing-story-text-col: 800px;
+  --spacing-story-media-col: 940px;
+  --spacing-stories-gap-mobile: 60px;
+  --spacing-stories-gap-desktop: 100px;
+  --spacing-payment-systems-mobile: 138px;
+  --spacing-payment-systems-desktop: 212px;
+  --spacing-payment-gap: 10px;
+  --spacing-payment-card-width: 64px;
+  --spacing-payment-card-radius: 6.957px;
+  --spacing-payment-card-padding: 6.957px;
+  --spacing-payment-logo-width: 50.087px;
+  --spacing-payment-logo-paypal-height: 12.7665px;
+  --spacing-payment-logo-visa-height: 16.1756px;
+  --spacing-payment-logo-discover-height: 7.82278px;
+  --spacing-payment-logo-amex-height: 18.135px;
+  --spacing-payment-logo-mastercard-width: 35.4783px;
+  --spacing-payment-logo-mastercard-height: 21.9279px;
+  --spacing-field-x: 14px;
+  --spacing-field-y: 10px;
+  --spacing-footer-copy-max: 180px;
+  --spacing-cta-padding-y-xl: 60px;
+  --text-size-10: 10px;
+  --text-size-12: 12px;
+  --text-size-13: 13px;
+  --text-size-14: 14px;
+  --text-size-16: 16px;
+  --text-size-20: 20px;
+  --text-size-28: 28px;
+  --text-size-30: 30px;
+  --text-size-32: 32px;
+  --text-size-36: 36px;
+  --text-size-48: 48px;
+  --text-size-64: 64px;
+  --tracking-neg-012px: -0.12px;
+  --tracking-neg-014px: -0.14px;
+  --tracking-neg-016px: -0.16px;
+  --tracking-neg-02px: -0.2px;
+  --tracking-neg-028px: -0.28px;
+  --tracking-neg-03px: -0.3px;
+  --tracking-neg-288px: -2.88px;
   --font-sans: "Inter", sans-serif;
 }
 
@@ -44,6 +103,10 @@
   button,
   input {
     font: inherit;
+  }
+
+  button {
+    cursor: pointer;
   }
 
   [x-cloak] {
