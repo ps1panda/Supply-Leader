@@ -1,0 +1,31 @@
+{% from "components/button.html" import button %}
+
+<section class="relative min-h-[358px] overflow-hidden px-4 pt-4 pb-4 md:min-h-[408px] md:px-5 md:pt-0 md:pb-5 xl:min-h-[600px] xl:px-10 xl:pt-[27px] xl:pb-[37px]">
+    <div class="relative z-10 max-w-[var(--spacing-content-mobile)] space-y-6 pt-4 md:max-w-[var(--spacing-content-tablet-wide)] md:space-y-10 md:pt-5 xl:max-w-[var(--spacing-content-desktop)] xl:space-y-10 xl:pt-0">
+        <div class="space-y-5 md:space-y-5 xl:space-y-[30px]">
+            <h1 class="text-white [font-size:var(--text-size-32)] font-medium leading-[1.2] tracking-[-0.09375em] md:max-w-[555px] md:text-[32px] md:tracking-[-1.92px] xl:max-w-[var(--spacing-content-desktop)] xl:[font-size:var(--text-size-64)] xl:leading-[1.2] xl:tracking-[-3.84px]">
+                Wholesale Sourcing with<br class="max-xl:hidden" /> Built-In Compliance Review
+            </h1>
+            <p class="max-w-[var(--spacing-content-mobile)] text-white/80 [font-size:var(--text-size-13)] leading-[1.3] tracking-[var(--tracking-neg-012px)] md:max-w-[600px] md:text-sm md:leading-[1.35] md:tracking-[var(--tracking-neg-014px)] xl:max-w-[var(--spacing-content-desktop)] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
+                Retail demand analytics, a proprietary white label and branded supplier search system, private
+                labeling, and pre-order compliance review &#8212; all in one wholesale platform.
+            </p>
+        </div>
+
+        {% call button({ color: "white", class: "btn-sm border border-border rounded-[var(--spacing-radius-control)] px-2.5 py-1 text-[var(--text-size-10)] font-semibold leading-none tracking-[var(--tracking-neg-01em)] md:h-9 md:px-3 md:py-2 md:text-sm xl:h-13 xl:px-4 xl:py-4 xl:text-[20px] xl:font-semibold xl:tracking-[var(--tracking-neg-02px)]", attrs: { "@click": "$dispatch('open-modal')" } }) %}
+            Try now for $99
+        {% endcall %}
+
+        <div class="max-w-[var(--spacing-content-mobile)] space-y-3 md:max-w-[var(--spacing-content-tablet-wide)] xl:min-w-full xl:max-w-none xl:space-y-5">
+            <p class="text-white [font-size:var(--text-size-14)] font-semibold leading-[1.3] tracking-[var(--tracking-neg-014px)] md:text-sm md:tracking-[var(--tracking-neg-014px)] xl:max-w-[var(--spacing-content-desktop)] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
+                Find profitable products using retail demand analytics &#8212; and source them safely through approved
+                suppliers.
+            </p>
+            <p class="text-white/80 [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)] md:text-sm md:leading-[1.35] md:tracking-[var(--tracking-neg-014px)] xl:max-w-[var(--spacing-content-desktop)] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
+                We help you identify profitable products, find suitable white label or branded suppliers, and filter
+                compliance and IP risk before you place an order, so you can launch with confidence and avoid costly
+                mistakes.
+            </p>
+        </div>
+    </div>
+</section>

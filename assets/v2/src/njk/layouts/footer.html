@@ -4,20 +4,20 @@
 
 {% call container({
     tag: "footer",
-    class: "relative z-0 grid gap-6 py-4 text-white md:grid-cols-3 md:items-start md:gap-y-8 md:gap-x-8 xl:sticky xl:bottom-0 xl:grid-cols-[1.2fr_.8fr_.8fr_1fr_1.2fr_1.1fr] xl:gap-5 xl:gap-x-8"
+    class: "relative z-0 mt-[30px] grid grid-cols-2 gap-x-5 gap-y-5 px-4 pt-3 pb-2.5 text-white md:mt-10 md:grid-cols-[177px_195px_276px] md:items-start md:justify-between md:gap-y-5 md:gap-x-0 md:px-5 md:py-4 xl:mt-[120px] xl:grid-cols-[1.2fr_.8fr_.8fr_1fr_1.2fr_1.1fr] xl:px-0 xl:gap-5 xl:gap-x-8"
 }) %}
-    <div class="grid grid-cols-2 gap-6 md:contents xl:contents">
+    <div class="contents md:contents xl:contents">
         <div class="grid gap-2.5 md:col-start-1 md:row-start-1 xl:order-2 xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Help pages</p>
-            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Help pages</p>
+            <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">About Us</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Contact Us</a>
             </div>
         </div>
 
         <div class="grid gap-2.5 md:col-start-2 md:row-start-1 xl:order-3 xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Documents</p>
-            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Documents</p>
+            <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">Legal info</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Privacy Policy</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Cookie Policy</a>
@@ -26,8 +26,8 @@
     </div>
 
     <div class="grid gap-2.5 md:col-start-1 md:row-start-2 xl:order-4 xl:col-auto xl:row-auto">
-        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Follow us</p>
-        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+        <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Follow us</p>
+        <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
             <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
                 <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                     {{ svgIcon({ name: "facebook", class: "size-4 fill-none stroke-current" }) }}
@@ -55,9 +55,9 @@
         </div>
     </div>
 
-    <div class="grid gap-2.5 md:col-start-3 md:row-start-1 xl:order-5 xl:col-auto xl:row-auto">
-        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Contacts</p>
-        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+    <div class="grid gap-2.5 col-start-2 row-start-2 md:col-start-3 md:row-start-1 xl:order-5 xl:col-auto xl:row-auto">
+        <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Contacts</p>
+        <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
             <a href="#" class="block transition duration-200 hover:text-white">Request call</a>
             <a href="mailto:support@supplyleader.com" class="block transition duration-200 hover:text-white">
                 support@supplyleader.com
@@ -66,9 +66,9 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-2 items-start gap-6 md:contents xl:contents">
-        <div class="grid gap-2.5 md:col-start-2 md:row-start-2 xl:order-1 xl:col-auto xl:row-auto">
-            <p class="max-w-[var(--spacing-footer-copy-max)] [font-size:var(--text-size-12)] font-semibold leading-[1.35] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">
+    <div class="contents md:contents xl:contents">
+        <div class="grid gap-2.5 col-start-1 row-start-3 md:col-start-2 md:row-start-2 xl:order-1 xl:col-auto xl:row-auto">
+            <p class="max-w-[var(--spacing-footer-copy-max)] text-xs font-semibold leading-[1.35] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">
                 Wholesale supply service in your mobile app.
             </p>
             <div class="grid gap-2 md:flex md:flex-wrap md:items-start md:gap-3 xl:grid xl:gap-[var(--spacing-payment-gap)]">
@@ -80,14 +80,14 @@
                 {{ storeLogo({
                     store: "Google Play",
                     attrs: { 'aria-label': 'Get it on Google Play' },
-                    class: 'justify-start'
+                    class: 'hidden justify-start xl:block'
                 }) }}
             </div>
         </div>
 
-        <div class="grid gap-2.5 md:col-start-3 md:row-start-2 xl:order-6 xl:items-end xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Payment Systems</p>
-            <div class="grid w-[var(--spacing-payment-systems-mobile)] grid-cols-2 gap-[var(--spacing-payment-gap)] xl:flex xl:w-[var(--spacing-payment-systems-desktop)] xl:flex-wrap xl:justify-start">
+        <div class="grid gap-2 col-start-2 row-start-3 md:col-start-3 md:row-start-2 md:gap-2.5 xl:order-6 xl:items-end xl:col-auto xl:row-auto">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Payment Systems</p>
+            <div class="grid w-[var(--spacing-payment-systems-mobile-lg)] grid-cols-2 gap-[var(--spacing-payment-gap)] md:w-[224px] md:grid-cols-3 md:gap-2.5 xl:flex xl:w-[var(--spacing-payment-systems-desktop)] xl:flex-wrap xl:justify-start">
                 <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
                     <img src="../../img/footer/paypal.svg" alt="PayPal" class="block h-[var(--spacing-payment-logo-paypal-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
                 </span>
@@ -103,11 +103,21 @@
                 <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
                     <img src="../../img/footer/mastercard.svg" alt="MasterCard" class="block h-[var(--spacing-payment-logo-mastercard-height)] w-[var(--spacing-payment-logo-mastercard-width)]" loading="lazy" />
                 </span>
+                <span class="hidden h-[35px] w-[64px] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)] md:inline-flex xl:hidden">
+                    <span class="text-center text-[10px] font-semibold leading-[1.05] tracking-[var(--tracking-neg-01em)] text-text-primary">
+                        WIRE
+                        <br />
+                        TRANSFER
+                    </span>
+                </span>
             </div>
+            <p class="hidden text-right text-xs tracking-[var(--tracking-neg-012px)] text-white/60 md:block xl:hidden">
+                &copy; 2018 - 2025 Supply Leader. All rights reserved.
+            </p>
         </div>
     </div>
 
-    <p class="[font-size:var(--text-size-10)] text-white/60 md:col-start-3 md:row-start-3 md:justify-self-end md:text-right md:text-xs xl:order-7 xl:col-start-6 xl:row-auto xl:text-xs xl:tracking-[var(--tracking-neg-012px)]">
+    <p class="col-span-2 pr-1 text-right [font-size:var(--text-size-10)] text-white/60 md:hidden xl:order-7 xl:col-start-6 xl:row-auto xl:block xl:pr-0 xl:text-right xl:text-xs xl:tracking-[var(--tracking-neg-012px)]">
         &copy; 2018 - 2025 Supply Leader. All rights reserved.
     </p>
 {% endcall %}

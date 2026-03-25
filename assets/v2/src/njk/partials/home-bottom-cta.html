@@ -1,0 +1,30 @@
+{% from "components/button.html" import button %}
+
+{% set bottomCtaImage = "../../img/home/bottom-cta-bg.png" %}
+
+<article>
+<article class="relative overflow-hidden rounded-[20px] border border-border px-4 py-8 text-center md:px-10 md:py-10 xl:px-10 xl:py-10">
+    <img
+        src="{{ bottomCtaImage }}"
+        alt=""
+        class="absolute inset-0 size-full object-cover object-center"
+        loading="lazy"
+    />
+
+    <div class="relative z-10 mx-auto flex max-w-[328px] flex-col gap-5 md:max-w-[520px] md:gap-10 xl:w-[800px] xl:max-w-none xl:gap-10">
+        <div class="flex flex-col gap-4 xl:gap-5">
+            <h2 class="text-text-primary [font-size:var(--text-size-36)] font-medium leading-[1.08] tracking-[-0.06em] md:text-[30px] md:leading-none md:tracking-[-0.3px] xl:[font-size:var(--text-size-64)] xl:leading-[1.2] xl:tracking-[-3.84px]">
+                Start a multi-million business from a scratch
+            </h2>
+            <div class="text-text-secondary [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)] md:text-sm md:leading-[1.4] md:tracking-[-0.14px] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
+                <p>Create a capitalization business that you can attract investors or sell.</p>
+                <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
+            </div>
+        </div>
+
+        {% call button({ color: "brand", class: "button-compact-md btn-sm mx-auto md:h-9 md:px-3 md:py-2 md:text-base xl:btn-lg", attrs: { "@click": "$dispatch('open-modal')" } }) %}
+            Try now for $99
+        {% endcall %}
+    </div>
+</article>
+</article>

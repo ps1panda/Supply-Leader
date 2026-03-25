@@ -21,7 +21,7 @@
     </div>
     {% call button({
         color: "white",
-        class: "button-compact btn-sm border-0 rounded-md transition duration-700 md:px-3 md:py-3 md:text-sm md:font-medium md:leading-none md:tracking-[-0.01em] xl:btn-lg",
+        class: "btn-sm border-0 rounded-md px-2.5 py-1 text-[var(--text-size-10)] font-semibold transition duration-700 md:px-3 md:py-3 md:text-sm md:font-medium md:leading-none md:tracking-[var(--tracking-neg-01em)] xl:btn-lg",
         attrs: {
             "@click": "$dispatch('open-modal')",
             ":class": "ctaShown ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'"

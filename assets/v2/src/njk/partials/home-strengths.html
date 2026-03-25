@@ -1,0 +1,156 @@
+{% set cardImage1 = "../../img/home/strength-1.png" %}
+{% set cardImage2 = "../../img/home/strength-2.png" %}
+{% set cardImage3 = "../../img/home/strength-3.png" %}
+{% set cardImage4 = "../../img/home/strength-4.png" %}
+{% set strengths = [
+    {
+        title: "Lowest wholesale prices",
+        text: "Prices are lower because you side step resellers and trading companies and purchase your products directly from the original suppliers and manufacturers. When you buy using our service you can cut down the purchasing cost and save money.",
+        image: cardImage1,
+        imageClass: "absolute left-[-22.5%] top-[-12.86%] max-w-none size-[136.43%]"
+    },
+    {
+        title: "Unique products",
+        text: "We use the largest database, as well as manual search of our managers. Use search by recommended keywords on the product page to find new, unique products that are not yet on the market in the same niche.",
+        image: cardImage2,
+        imageClass: "absolute left-[-19.83%] top-[-12.86%] max-w-none size-[136.43%]"
+    },
+    {
+        title: "The lowest minimum order quantity",
+        text: "Most products are available for ordering from 1-2 pieces at a wholesale price. Something you can't find anywhere else.",
+        image: cardImage3,
+        imageClass: "absolute left-[-18.4%] top-[-12.04%] max-w-none size-[136.43%]"
+    },
+    {
+        title: "The easiest customization",
+        text: "Our managers will be happy to help, just provide your logo. In most cases, you can build your brand with a budget of a few hundred dollars.",
+        image: cardImage4,
+        imageClass: "absolute left-[9.74%] top-[-29.06%] max-w-none size-[118.91%]"
+    }
+] %}
+
+<article class="flex flex-col gap-4 md:gap-5 xl:gap-[30px]">
+    <h2 class="hidden max-w-[216px] text-text-primary [font-size:var(--text-size-32)] font-medium leading-none tracking-[-0.06em] md:hidden xl:block xl:max-w-none xl:[font-size:var(--text-size-48)] xl:tracking-[var(--tracking-neg-288px)]">
+        The best wholesale supply solution
+    </h2>
+
+    <div x-data="horizontalPager()" class="flex flex-col gap-2.5 md:hidden">
+        <div class="flex items-start justify-between gap-4">
+            <h2 class="max-w-[216px] text-text-primary [font-size:var(--text-size-32)] font-medium leading-none tracking-[-0.06em]">
+                The best wholesale supply solution
+            </h2>
+
+            <div class="flex shrink-0 items-center gap-2.5 pt-1.5">
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(-1)"
+                    :disabled="activeIndex === 0"
+                    aria-label="Previous strength"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9" loading="lazy" />
+                </button>
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(1)"
+                    :disabled="activeIndex === total - 1"
+                    aria-label="Next strength"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9 rotate-180" loading="lazy" />
+                </button>
+            </div>
+        </div>
+
+        <div
+            x-ref="track"
+            class="flex snap-x snap-mandatory gap-[10px] overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+            {% for strength in strengths %}
+                <div class="w-[300px] shrink-0 snap-start">
+                    <article class="card flex min-h-[361px] flex-col gap-6 overflow-hidden p-5 md:p-6 xl:gap-10 xl:rounded-[var(--radius-card)] xl:p-10">
+                        <div class="space-y-3">
+                            <h3 class="text-text-primary text-2xl font-semibold leading-none tracking-[var(--tracking-neg-024px,-0.24px)]">
+                                {{ strength.title }}
+                            </h3>
+                            <p class="text-text-secondary [font-size:var(--text-size-16)] leading-[1.3] tracking-[var(--tracking-neg-016px)]">
+                                {{ strength.text }}
+                            </p>
+                        </div>
+                        <div class="relative mt-auto size-28 md:size-32 xl:size-[140px]">
+                            <img src="{{ strength.image }}" alt="" class="size-full object-contain object-left-bottom" loading="lazy" />
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div x-data="horizontalPager()" class="hidden md:flex md:flex-col md:gap-5 xl:hidden">
+        <div class="flex items-center justify-between gap-4">
+            <h2 class="max-w-[626px] text-text-primary text-[30px] font-medium leading-none tracking-[-0.3px]">
+                The best wholesale supply solution
+            </h2>
+
+            <div class="flex shrink-0 items-center gap-2.5">
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(-1)"
+                    :disabled="activeIndex === 0"
+                    aria-label="Previous strength"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9" loading="lazy" />
+                </button>
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(1)"
+                    :disabled="activeIndex === total - 1"
+                    aria-label="Next strength"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9 rotate-180" loading="lazy" />
+                </button>
+            </div>
+        </div>
+
+        <div
+            x-ref="track"
+            class="flex snap-x snap-mandatory gap-[10px] overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+            {% for strength in strengths %}
+                <article class="card flex min-h-[366px] w-[300px] shrink-0 snap-start flex-col gap-6 overflow-hidden p-5">
+                    <div class="space-y-3">
+                        <h3 class="text-text-primary text-xl font-semibold leading-none tracking-[-0.2px]">
+                            {{ strength.title }}
+                        </h3>
+                        <p class="text-text-secondary text-sm leading-[1.35] tracking-[-0.14px]">
+                            {{ strength.text }}
+                        </p>
+                    </div>
+                    <div class="relative mt-auto size-32 overflow-hidden">
+                        <img src="{{ strength.image }}" alt="" class="{{ strength.imageClass | twMerge('object-contain object-left-top absolute max-w-none') }}" loading="lazy" />
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="hidden gap-[10px] xl:grid xl:grid-cols-4 xl:gap-5">
+        {% for strength in strengths %}
+            <article class="card flex min-h-[402px] flex-col gap-6 overflow-hidden p-5 md:p-6 xl:gap-10 xl:rounded-[var(--radius-card)] xl:p-10">
+                <div class="space-y-3">
+                    <h3 class="text-text-primary text-2xl font-semibold leading-none tracking-[var(--tracking-neg-024px,-0.24px)] xl:text-2xl xl:tracking-[var(--tracking-neg-024px,-0.24px)]">
+                        {{ strength.title }}
+                    </h3>
+                    <p class="text-text-secondary [font-size:var(--text-size-16)] leading-[1.3] tracking-[var(--tracking-neg-016px)] xl:[font-size:var(--text-size-16)] xl:leading-[1.3] xl:tracking-[var(--tracking-neg-016px)]">
+                        {{ strength.text }}
+                    </p>
+                </div>
+                <div class="relative mt-auto size-28 overflow-hidden xl:size-[140px]">
+                    <img src="{{ strength.image }}" alt="" class="{{ strength.imageClass | twMerge('object-contain object-left-top absolute max-w-none') }}" loading="lazy" />
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</article>

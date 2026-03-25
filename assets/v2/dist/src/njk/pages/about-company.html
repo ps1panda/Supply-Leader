@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>About Company | Supply Leader</title>
         <meta name="description" content="Supply Leader about company page" />
-      <script type="module" crossorigin src="/assets/about-company.njk-CKiKgQYu.js"></script>
-      <link rel="stylesheet" crossorigin href="/assets/about-company-CGc7Sv48.css">
+      <script type="module" crossorigin src="/assets/app-B7Z7807P.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/app-DCID6cH3.css">
     </head>
     <body
         x-data="dialogModal()"
@@ -18,10 +18,10 @@
     <div class="relative z-10 flex min-h-screen flex-col gap-5 bg-surface-dark py-5">
 
     <header
-        class="mx-auto w-[min(calc(100%-40px),var(--spacing-container))] flex items-center justify-between gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-6 xl:gap-10"
+        class="mx-auto w-full max-w-[var(--spacing-container)] relative z-20 px-5 pt-5 flex items-center justify-between gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-5 xl:gap-5"
         
     >
-            <a href="#" class="shrink-0">
+            <a href="/src/njk/pages/index.html" class="shrink-0">
         <img
             src="/assets/logo-supply-leader-CV49Nkm5.png"
             alt="Supply Leader"
@@ -30,11 +30,50 @@
         />
     </a>
 
-    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[var(--spacing-header-search-md)] md:justify-self-center xl:max-w-[var(--spacing-header-search-xl)]">
-        <button type="button" class="btn-gray h-9 shrink-0 text-sm font-medium leading-none tracking-[-0.01em]">
-            All categories
-        </button>
-        <label class="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[var(--spacing-radius-control)] border p-2 [background-color:color-mix(in_srgb,white_20%,transparent)] [border-color:color-mix(in_srgb,white_10%,transparent)]">
+    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[var(--spacing-header-search-md)] md:justify-self-center xl:max-w-[720px]">
+        <div x-data="{ open: false }" class="relative shrink-0">
+            <button
+                type="button"
+                class="btn-gray h-9 shrink-0 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)]"
+                @click="open = !open"
+                :aria-expanded="open.toString()"
+                aria-haspopup="menu"
+            >
+                All categories
+            </button>
+            <div
+                x-cloak
+                x-show="open"
+                x-transition:enter="transition duration-200"
+                x-transition:enter-start="opacity-0 translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-1"
+                @click.outside="open = false"
+                @keydown.escape.window="open = false"
+                class="absolute left-0 top-full z-30 mt-2 min-w-52 overflow-hidden rounded-[16px] border border-border bg-white p-1 shadow-lg"
+                role="menu"
+            >
+                <a
+                    href="/src/njk/pages/index.html"
+                    class="block rounded-[12px] px-3 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary transition duration-200 hover:bg-surface"
+                    @click="open = false"
+                    role="menuitem"
+                >
+                    Home
+                </a>
+                <a
+                    href="/src/njk/pages/about-company.html"
+                    class="block rounded-[12px] px-3 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary transition duration-200 hover:bg-surface"
+                    @click="open = false"
+                    role="menuitem"
+                >
+                    About Company
+                </a>
+            </div>
+        </div>
+        <label class="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[var(--spacing-radius-control)] border p-2 [background-color:color-mix(in_srgb,white_20%,transparent)] [border-color:color-mix(in_srgb,white_10%,transparent)] xl:w-[600px] xl:flex-none">
                 <svg
         viewBox="0 0 20 20"
         fill="none"
@@ -48,7 +87,7 @@
             <input
                 type="search"
                 placeholder="Search"
-                class="w-full border-0 bg-transparent p-0 text-sm leading-none tracking-[-0.01em] text-white outline-none placeholder:text-white/60"
+                class="w-full border-0 bg-transparent p-0 text-sm leading-none tracking-[var(--tracking-neg-01em)] text-white outline-none placeholder:text-white/60"
             />
             <span class="flex items-center justify-center rounded-[var(--spacing-radius-control-sm)] bg-white/10 p-1 text-white/80">
                     <svg
@@ -65,7 +104,7 @@
         </label>
     </div>
 
-    <div class="flex items-center gap-2.5 shrink-0">
+    <div class="flex items-center gap-2 shrink-0 xl:gap-5">
         <a href="#" class="hidden items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white max-md:inline-flex" aria-label="Open search">
                 <svg
         viewBox="0 0 20 20"
@@ -78,7 +117,7 @@
     </svg>
 
         </a>
-        <nav class="hidden items-center gap-2.5 text-white/80 md:flex">
+        <nav class="hidden items-center gap-2 text-white/80 md:flex xl:gap-[10px]">
             <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white">
                     <svg
         viewBox="0 0 20 20"
@@ -116,11 +155,11 @@
 
             </a>
         </nav>
-        <div class="flex items-center">
-            <span class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] border bg-brand px-2 py-2.5 text-sm font-medium leading-none tracking-[-0.01em] text-white [border-color:color-mix(in_srgb,white_50%,transparent)]">
+        <div class="flex items-center gap-[2px]">
+            <span class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] border bg-brand px-2 py-2.5 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-white [border-color:color-mix(in_srgb,white_50%,transparent)]">
                 CN
             </span>
-            <span class="hidden rounded-md px-2 py-2 text-sm font-medium leading-none tracking-[-0.01em] text-white xl:inline-flex">
+            <span class="hidden rounded-md px-2 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-white xl:inline-flex">
                 Company Name
             </span>
         </div>
@@ -161,7 +200,7 @@
         </p>
     </div>
     <button
-type="button"        class="btn-white button-compact btn-sm border-0 rounded-md transition duration-700 md:px-3 md:py-3 md:text-sm md:font-medium md:leading-none md:tracking-[-0.01em] xl:btn-lg"
+type="button"        class="btn-white btn-sm border-0 rounded-md px-2.5 py-1 text-[var(--text-size-10)] font-semibold transition duration-700 md:px-3 md:py-3 md:text-sm md:font-medium md:leading-none md:tracking-[var(--tracking-neg-01em)] xl:btn-lg"
         @click='$dispatch(&#39;open-modal&#39;)' :class='ctaShown ? &#39;translate-y-0 opacity-100&#39; : &#39;translate-y-3 opacity-0&#39;'
     >
                 Try now for $99
@@ -198,20 +237,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-6 opacity-0 blur-sm'"
                 class=" w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-1-BwblMPfT.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-1-BwblMPfT.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
         <article
@@ -240,20 +275,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : '-translate-x-6 opacity-0 blur-sm'"
                 class="xl:order-1 w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-2-CD0efYqG.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-2-CD0efYqG.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
         <article
@@ -283,20 +314,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-6 opacity-0 blur-sm'"
                 class=" w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-3-BWJbfo6J.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-3-BWJbfo6J.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
         <article
@@ -325,20 +352,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : '-translate-x-6 opacity-0 blur-sm'"
                 class="xl:order-1 w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-4-D7MSg4cN.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-4-D7MSg4cN.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
         <article
@@ -373,20 +396,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : 'translate-x-6 opacity-0 blur-sm'"
                 class=" w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-5-hTdKHmlY.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-5-hTdKHmlY.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
         <article
@@ -416,20 +435,16 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : '-translate-x-6 opacity-0 blur-sm'"
                 class="xl:order-1 w-full transition duration-700 max-xl:mx-auto"
             >
-                    <div
-        class="card relative overflow-hidden aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]"
-        
-    >
-            <div class="absolute inset-0">
-                <img
-                    src="/assets/story-6-wWnQPlYy.png"
-                    alt=""
-                    class="size-full object-contain object-center"
-                    loading="lazy"
-                />
-            </div>
-    </div>
-
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="/assets/story-6-wWnQPlYy.png"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
 
@@ -456,7 +471,7 @@ type="button"        class="btn-white button-compact btn-sm border-0 rounded-md 
                 <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
             </div>
     <button
-type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg"
+type="button"        class="btn-brand btn-sm mx-auto px-3 text-xs font-semibold xl:btn-lg"
         @click='$dispatch(&#39;open-modal&#39;)'
     >
                         Try now for $99
@@ -469,21 +484,21 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
     </div>
 
     <footer
-        class="mx-auto w-[min(calc(100%-40px),var(--spacing-container))] relative z-0 grid gap-6 py-4 text-white md:grid-cols-3 md:items-start md:gap-y-8 md:gap-x-8 xl:sticky xl:bottom-0 xl:grid-cols-[1.2fr_.8fr_.8fr_1fr_1.2fr_1.1fr] xl:gap-5 xl:gap-x-8"
+        class="mx-auto w-full max-w-[var(--spacing-container)] relative z-0 mt-[30px] grid grid-cols-2 gap-x-5 gap-y-5 px-4 pt-3 pb-2.5 text-white md:mt-10 md:grid-cols-[177px_195px_276px] md:items-start md:justify-between md:gap-y-5 md:gap-x-0 md:px-5 md:py-4 xl:mt-[120px] xl:grid-cols-[1.2fr_.8fr_.8fr_1fr_1.2fr_1.1fr] xl:px-0 xl:gap-5 xl:gap-x-8"
         
     >
-            <div class="grid grid-cols-2 gap-6 md:contents xl:contents">
+            <div class="contents md:contents xl:contents">
         <div class="grid gap-2.5 md:col-start-1 md:row-start-1 xl:order-2 xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Help pages</p>
-            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Help pages</p>
+            <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">About Us</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Contact Us</a>
             </div>
         </div>
 
         <div class="grid gap-2.5 md:col-start-2 md:row-start-1 xl:order-3 xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Documents</p>
-            <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Documents</p>
+            <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
                 <a href="#" class="block transition duration-200 hover:text-white">Legal info</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Privacy Policy</a>
                 <a href="#" class="block transition duration-200 hover:text-white">Cookie Policy</a>
@@ -492,8 +507,8 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
     </div>
 
     <div class="grid gap-2.5 md:col-start-1 md:row-start-2 xl:order-4 xl:col-auto xl:row-auto">
-        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Follow us</p>
-        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+        <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Follow us</p>
+        <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
             <a href="#" class="inline-flex items-center gap-2 transition duration-200 hover:text-white">
                 <span class="inline-flex size-6 items-center justify-center rounded [background-color:color-mix(in_srgb,white_10%,transparent)]">
                         <svg
@@ -557,9 +572,9 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
         </div>
     </div>
 
-    <div class="grid gap-2.5 md:col-start-3 md:row-start-1 xl:order-5 xl:col-auto xl:row-auto">
-        <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Contacts</p>
-        <div class="grid gap-2 [font-size:var(--text-size-12)] leading-[1.35] text-white/80 md:gap-2.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
+    <div class="grid gap-2.5 col-start-2 row-start-2 md:col-start-3 md:row-start-1 xl:order-5 xl:col-auto xl:row-auto">
+        <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Contacts</p>
+        <div class="grid gap-2 text-xs leading-[1.35] text-white/80 md:gap-1.5 md:text-sm xl:gap-2 xl:text-sm xl:leading-none xl:tracking-[var(--tracking-neg-014px)]">
             <a href="#" class="block transition duration-200 hover:text-white">Request call</a>
             <a href="mailto:support@supplyleader.com" class="block transition duration-200 hover:text-white">
                 support@supplyleader.com
@@ -568,9 +583,9 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
         </div>
     </div>
 
-    <div class="grid grid-cols-2 items-start gap-6 md:contents xl:contents">
-        <div class="grid gap-2.5 md:col-start-2 md:row-start-2 xl:order-1 xl:col-auto xl:row-auto">
-            <p class="max-w-[var(--spacing-footer-copy-max)] [font-size:var(--text-size-12)] font-semibold leading-[1.35] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">
+    <div class="contents md:contents xl:contents">
+        <div class="grid gap-2.5 col-start-1 row-start-3 md:col-start-2 md:row-start-2 xl:order-1 xl:col-auto xl:row-auto">
+            <p class="max-w-[var(--spacing-footer-copy-max)] text-xs font-semibold leading-[1.35] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">
                 Wholesale supply service in your mobile app.
             </p>
             <div class="grid gap-2 md:flex md:flex-wrap md:items-start md:gap-3 xl:grid xl:gap-[var(--spacing-payment-gap)]">
@@ -587,7 +602,7 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
     </div>
 
                     <div
-        class="block h-10 w-[var(--spacing-store-badge-width)] shrink-0 overflow-hidden justify-start"
+        class="h-10 w-[var(--spacing-store-badge-width)] shrink-0 overflow-hidden hidden justify-start xl:block"
         aria-label='Get it on Google Play'
     >
         <img
@@ -601,9 +616,9 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
             </div>
         </div>
 
-        <div class="grid gap-2.5 md:col-start-3 md:row-start-2 xl:order-6 xl:items-end xl:col-auto xl:row-auto">
-            <p class="[font-size:var(--text-size-12)] font-semibold leading-[1.2] tracking-[-0.01em] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Payment Systems</p>
-            <div class="grid w-[var(--spacing-payment-systems-mobile)] grid-cols-2 gap-[var(--spacing-payment-gap)] xl:flex xl:w-[var(--spacing-payment-systems-desktop)] xl:flex-wrap xl:justify-start">
+        <div class="grid gap-2 col-start-2 row-start-3 md:col-start-3 md:row-start-2 md:gap-2.5 xl:order-6 xl:items-end xl:col-auto xl:row-auto">
+            <p class="text-xs font-semibold leading-[1.2] tracking-[var(--tracking-neg-01em)] text-white md:text-sm xl:text-base xl:leading-none xl:tracking-[var(--tracking-neg-016px)]">Payment Systems</p>
+            <div class="grid w-[var(--spacing-payment-systems-mobile-lg)] grid-cols-2 gap-[var(--spacing-payment-gap)] md:w-[224px] md:grid-cols-3 md:gap-2.5 xl:flex xl:w-[var(--spacing-payment-systems-desktop)] xl:flex-wrap xl:justify-start">
                 <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
                     <img src="/assets/paypal-CMUZsfRP.svg" alt="PayPal" class="block h-[var(--spacing-payment-logo-paypal-height)] w-[var(--spacing-payment-logo-width)]" loading="lazy" />
                 </span>
@@ -619,11 +634,21 @@ type="button"        class="btn-brand button-compact-md btn-sm mx-auto xl:btn-lg
                 <span class="inline-flex w-[var(--spacing-payment-card-width)] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)]">
                     <img src="data:image/svg+xml,%3csvg%20preserveAspectRatio='none'%20width='100%25'%20height='100%25'%20overflow='visible'%20style='display:%20block;'%20viewBox='0%200%2035.4783%2021.9279'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='Symbol'%3e%3cpath%20id='Vector'%20d='M22.5362%202.34349H12.9427V19.5832H22.5362V2.34349Z'%20fill='var(--fill-0,%20%23FF5F00)'/%3e%3cpath%20id='Vector_2'%20d='M13.5518%2010.9639C13.5502%209.30364%2013.9265%207.66475%2014.652%206.17135C15.3775%204.67794%2016.4333%203.36916%2017.7394%202.34409C16.1219%201.07278%2014.1795%200.282162%2012.134%200.0626172C10.0885%20-0.156927%208.0225%200.203457%206.17214%201.10258C4.32178%202.0017%202.76171%203.40328%201.67026%205.14712C0.578807%206.89096%200%208.9067%200%2010.9639C0%2013.0212%200.578807%2015.0369%201.67026%2016.7808C2.76171%2018.5246%204.32178%2019.9262%206.17214%2020.8253C8.0225%2021.7244%2010.0885%2022.0848%2012.134%2021.8653C14.1795%2021.6457%2016.1219%2020.8551%2017.7394%2019.5838C16.4333%2018.5587%2015.3775%2017.25%2014.652%2015.7566C13.9265%2014.2631%2013.5503%2012.6242%2013.5518%2010.9639V10.9639Z'%20fill='var(--fill-0,%20%23EB001B)'/%3e%3cpath%20id='Vector_3'%20d='M35.4783%2010.9639C35.4783%2013.0212%2034.8996%2015.0369%2033.8082%2016.7807C32.7168%2018.5246%2031.1568%2019.9262%2029.3065%2020.8253C27.4562%2021.7244%2025.3902%2022.0848%2023.3447%2021.8653C21.2993%2021.6457%2019.3568%2020.8551%2017.7395%2019.5838C19.0444%2018.5577%2020.0993%2017.2487%2020.8247%2015.7555C21.5501%2014.2624%2021.927%2012.624%2021.927%2010.9639C21.927%209.3039%2021.5501%207.66553%2020.8247%206.17236C20.0993%204.67919%2019.0444%203.37019%2017.7395%202.34409C19.3568%201.07277%2021.2993%200.282157%2023.3447%200.0626153C25.3902%20-0.156927%2027.4562%200.203464%2029.3065%201.1026C31.1568%202.00173%2032.7168%203.40331%2033.8082%205.14715C34.8996%206.891%2035.4783%208.90673%2035.4783%2010.9639V10.9639Z'%20fill='var(--fill-0,%20%23F79E1B)'/%3e%3cpath%20id='Vector_4'%20d='M34.4323%2017.7575V17.4045H34.5746V17.3326H34.2122V17.4045H34.3545V17.7575H34.4323ZM35.136%2017.7575V17.3319H35.0249L34.8971%2017.6246L34.7693%2017.3319H34.6581V17.7575H34.7366V17.4365L34.8564%2017.7132H34.9377L35.0576%2017.4358V17.7575H35.136Z'%20fill='var(--fill-0,%20%23F79E1B)'/%3e%3c/g%3e%3c/svg%3e" alt="MasterCard" class="block h-[var(--spacing-payment-logo-mastercard-height)] w-[var(--spacing-payment-logo-mastercard-width)]" loading="lazy" />
                 </span>
+                <span class="hidden h-[35px] w-[64px] items-center justify-center rounded-[var(--spacing-payment-card-radius)] border border-border bg-white p-[var(--spacing-payment-card-padding)] md:inline-flex xl:hidden">
+                    <span class="text-center text-[10px] font-semibold leading-[1.05] tracking-[var(--tracking-neg-01em)] text-text-primary">
+                        WIRE
+                        <br />
+                        TRANSFER
+                    </span>
+                </span>
             </div>
+            <p class="hidden text-right text-xs tracking-[var(--tracking-neg-012px)] text-white/60 md:block xl:hidden">
+                &copy; 2018 - 2025 Supply Leader. All rights reserved.
+            </p>
         </div>
     </div>
 
-    <p class="[font-size:var(--text-size-10)] text-white/60 md:col-start-3 md:row-start-3 md:justify-self-end md:text-right md:text-xs xl:order-7 xl:col-start-6 xl:row-auto xl:text-xs xl:tracking-[var(--tracking-neg-012px)]">
+    <p class="col-span-2 pr-1 text-right [font-size:var(--text-size-10)] text-white/60 md:hidden xl:order-7 xl:col-start-6 xl:row-auto xl:block xl:pr-0 xl:text-right xl:text-xs xl:tracking-[var(--tracking-neg-012px)]">
         &copy; 2018 - 2025 Supply Leader. All rights reserved.
     </p>
 

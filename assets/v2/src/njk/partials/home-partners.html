@@ -1,0 +1,53 @@
+{% set partners = [
+    { alt: "eBay", src: "../../img/home/partners/ebay.svg", class: "h-[60px] w-[150px]" },
+    { alt: "Google", src: "../../img/home/partners/google.svg", class: "h-[60px] w-[177px]" },
+    { alt: "Meta", src: "../../img/home/partners/meta.svg", class: "h-[40px] w-[199px]" },
+    { alt: "Square", src: "../../img/home/partners/square.svg", class: "h-[50px] w-[200px]" },
+    { alt: "PayPal", src: "../../img/home/partners/paypal.svg", class: "h-[50px] w-[188px]" },
+    { alt: "Shopify", src: "../../img/home/partners/shopify.svg", class: "h-[60px] w-[191px]" }
+] %}
+
+<article class="flex flex-col gap-8 text-center md:gap-10 xl:gap-[60px]">
+    <div class="mx-auto flex max-w-[328px] flex-col gap-3 md:max-w-[560px] md:gap-4 xl:max-w-[1053px]">
+        <h2 class="text-text-primary [font-size:var(--text-size-32)] font-medium leading-none tracking-[-0.06em] md:text-[30px] md:tracking-[-0.3px] xl:[font-size:var(--text-size-48)] xl:tracking-[var(--tracking-neg-288px)]">
+            Established partnerships with the best in commerce
+        </h2>
+        <div class="text-text-muted [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)] md:text-sm md:leading-[1.4] md:tracking-[-0.14px] xl:[font-size:var(--text-size-20)] xl:leading-normal xl:tracking-[var(--tracking-neg-02px)]">
+            <p>Powered by a smart connection to the largest secret wholesale platform.</p>
+            <p>And our service helps you with access to this platform, translation, purchase and worldwide delivery</p>
+        </div>
+    </div>
+
+    <div
+        x-data="partnerMarquee()"
+        @mouseenter="pause()"
+        @mouseleave="resume()"
+        class="overflow-hidden md:hidden xl:block"
+    >
+        <div class="flex h-[60px] min-w-max items-center gap-10 xl:gap-20 will-change-transform" :style="trackStyle()">
+            <div x-ref="set" class="flex shrink-0 items-center gap-10 md:gap-12 xl:gap-20">
+                {% for partner in partners %}
+                    <div class="relative shrink-0 {{ partner.class }}">
+                        <img src="{{ partner.src }}" alt="{{ partner.alt }}" class="absolute inset-0 block size-full" loading="lazy" />
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div aria-hidden="true" class="flex shrink-0 items-center gap-10 md:gap-12 xl:gap-20">
+                {% for partner in partners %}
+                    <div class="relative shrink-0 {{ partner.class }}">
+                        <img src="{{ partner.src }}" alt="{{ partner.alt }}" class="absolute inset-0 block size-full" loading="lazy" />
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden md:grid md:grid-cols-3 md:justify-items-center md:gap-x-5 md:gap-y-5 xl:hidden">
+        {% for partner in partners %}
+            <div class="relative shrink-0 {{ partner.class }}">
+                <img src="{{ partner.src }}" alt="{{ partner.alt }}" class="absolute inset-0 block size-full" loading="lazy" />
+            </div>
+        {% endfor %}
+    </div>
+</article>

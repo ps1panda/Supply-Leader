@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% from "components/container.html" import container %}
+
+{% set title = "Supply Leader" %}
+{% set description = "Supply Leader home page" %}
+{% set bodyClass = "bg-surface-dark min-h-screen" %}
+
+{% block page %}
+    <div class="pointer-events-none absolute inset-x-0 top-0 z-0 h-[620px] overflow-hidden md:h-[760px] xl:h-[980px]">
+        <img
+            src="../../img/home/hero-bg.png"
+            alt=""
+            class="size-full object-cover object-center"
+            loading="eager"
+        />
+    </div>
+    {% include "layouts/header.html" %}
+    <main class="relative z-10 flex flex-1 flex-col gap-5 md:gap-10 xl:gap-5">
+        {% include "partials/home-hero.html" %}
+        <section class="flex w-full flex-col gap-[30px] rounded-[32px] border border-border bg-surface px-4 py-5 shadow-[-0.125rem_-0.125rem_2.3625rem_0_rgba(248,248,248,.2)] md:gap-[60px] md:px-5 md:py-5 xl:gap-[100px] xl:rounded-[40px] xl:px-10 xl:py-10">
+            {% include "partials/home-strengths.html" %}
+            {% include "partials/home-sourcing-options.html" %}
+            {% include "partials/home-business-opportunities.html" %}
+            {% include "partials/home-supplier-options.html" %}
+            {% include "partials/home-partners.html" %}
+            {% include "partials/home-pricing.html" %}
+            {% include "partials/home-bottom-cta.html" %}
+        </section>
+    </main>
+    {% include "layouts/footer.html" %}
+{% endblock %}

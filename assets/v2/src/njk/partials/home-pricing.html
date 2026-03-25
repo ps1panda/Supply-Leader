@@ -1,0 +1,132 @@
+{% from "components/button.html" import button %}
+{% from "components/svg-icon.html" import svgIcon %}
+
+{% set businessFeatures = [
+    "Amazon/Ebay/Walmart US products analytics.",
+    "Unlimited search & orders for White Label manufacturers by product images.",
+    "Unlimited search & orders for White Label manufacturers by Amazon product keywords.",
+    "<strong class=\"font-bold text-text-primary\">25 requests</strong> per month for White Label product Wholesale Terms (unlimited orders).",
+    "<strong class=\"font-bold text-text-primary\">25 requests</strong> per month for 100%-Original product Wholesale Prices (unlimited orders)."
+] %}
+
+{% set enterpriseFeatures = [
+    "Amazon/Ebay/Walmart <strong class=\"font-bold text-text-primary\">worldwide</strong> products analytics.",
+    "Unlimited search & orders for White Label manufacturers by product images.",
+    "Unlimited search & orders for White Label manufacturers by Amazon product keywords.",
+    "<strong class=\"font-bold text-text-primary\">300 requests</strong> per month for White Label product Wholesale Terms (unlimited orders).",
+    "<strong class=\"font-bold text-text-primary\">300 requests</strong> per month for 100%-Original product Wholesale Prices (unlimited orders).",
+    "Legal support for Amazon sellers."
+] %}
+
+<article class="flex flex-col gap-4 md:gap-6 xl:gap-[var(--spacing-section-gap)]">
+    <h2 class="text-center text-text-primary text-2xl font-medium leading-none tracking-[var(--tracking-neg-024px,-0.24px)] md:text-[30px] md:tracking-[-0.3px] xl:[font-size:var(--text-size-48)] xl:tracking-[var(--tracking-neg-288px)]">
+        Comfortable Subscription Plans
+    </h2>
+
+    <div class="mx-auto grid max-w-[1020px] gap-4 md:grid-cols-2 xl:grid-cols-[var(--spacing-pricing-card-width)_var(--spacing-pricing-card-width)] xl:justify-center xl:gap-5">
+        <article x-data="{ billing: 'yearly' }" class="overflow-hidden rounded-[var(--spacing-radius-card-sm)] bg-pricing-highlight xl:w-[var(--spacing-pricing-card-width)]">
+            <div class="px-5 py-2 text-center">
+                <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-brand">Recommended for you</p>
+            </div>
+            <div class="overflow-hidden rounded-[var(--spacing-radius-card-sm)] border border-border bg-white">
+                <div class="flex items-start justify-between gap-4 border-b border-dashed border-border px-4 py-4 md:px-5">
+                    <p class="text-lg font-semibold leading-none tracking-[var(--tracking-neg-01em)] text-text-primary md:text-xl">Business</p>
+                    <p class="text-lg font-semibold leading-none tracking-[var(--tracking-neg-01em)] text-text-primary md:text-xl" x-text="billing === 'yearly' ? '$119 / month' : '$239 / month'">$119 / month</p>
+                </div>
+
+                <div class="space-y-2.5 px-4 py-4 md:px-5">
+                    {% for feature in businessFeatures %}
+                        <div class="flex items-start gap-2.5">
+                            <span class="mt-1 inline-flex size-4 items-center justify-center text-brand">
+                                {{ svgIcon({ name: "check", viewBox: "0 0 16 16", class: "size-4 stroke-current" }) }}
+                            </span>
+                            <p class="flex-1 text-[var(--text-size-13)] leading-[1.35] tracking-[var(--tracking-neg-012px)] text-text-primary md:text-sm md:leading-none md:tracking-[var(--tracking-neg-01em)]">{{ feature | safe }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="space-y-4 border-t border-dashed border-border px-4 py-4 md:space-y-5 md:px-5">
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <label class="inline-flex shrink-0 cursor-pointer items-center">
+                                <input id="business-yearly" type="checkbox" :checked="billing === 'yearly'" @change="billing = 'yearly'" class="peer sr-only" aria-label="Yearly Plan" />
+                                <span class="inline-flex size-4 items-center justify-center rounded-full border border-border bg-white peer-checked:border-white peer-checked:bg-brand">
+                                    <span class="size-[var(--spacing-indicator-dot)] rounded-full bg-white opacity-0 transition duration-200 peer-checked:opacity-100"></span>
+                                </span>
+                            </label>
+                            <label for="business-yearly" class="flex-1 cursor-pointer text-sm leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">Yearly Plan</label>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">$119 / month</p>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-muted line-through">$239 / month</p>
+                            <span class="rounded bg-brand px-1.5 py-1 text-xs leading-none tracking-[var(--tracking-neg-01em)] text-white">50% off</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <label class="inline-flex shrink-0 cursor-pointer items-center">
+                                <input id="business-monthly" type="checkbox" :checked="billing === 'monthly'" @change="billing = 'monthly'" class="peer sr-only" aria-label="Monthly Plan" />
+                                <span class="inline-flex size-4 items-center justify-center rounded-full border border-border bg-white peer-checked:border-white peer-checked:bg-brand">
+                                    <span class="size-[var(--spacing-indicator-dot)] rounded-full bg-white opacity-0 transition duration-200 peer-checked:opacity-100"></span>
+                                </span>
+                            </label>
+                            <label for="business-monthly" class="flex-1 cursor-pointer text-sm leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">Monthly Plan</label>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">$239 / month</p>
+                        </div>
+                    </div>
+
+                    {% call button({ color: "outline", class: "btn-sm w-full justify-center border-0 bg-surface-strong text-white hover:bg-surface-strong/90" }) %}
+                        <span x-text="billing === 'yearly' ? 'Pay $1,428 for yearly plan' : 'Pay $239 for monthly plan'">Pay $1,428 for yearly plan</span>
+                    {% endcall %}
+                </div>
+            </div>
+        </article>
+
+        <article x-data="{ billing: 'yearly' }" class="overflow-hidden rounded-[var(--spacing-radius-card-sm)] bg-pricing-highlight xl:w-[var(--spacing-pricing-card-width)]">
+            <div class="overflow-hidden rounded-[var(--spacing-radius-card-sm)] border border-border bg-white">
+                <div class="flex items-start justify-between gap-4 border-b border-dashed border-border px-4 py-4 md:px-5">
+                    <p class="text-lg font-semibold leading-none tracking-[var(--tracking-neg-01em)] text-text-primary md:text-xl">Enterprise</p>
+                    <p class="text-lg font-semibold leading-none tracking-[var(--tracking-neg-01em)] text-text-primary md:text-xl" x-text="billing === 'yearly' ? '$399 / month' : '$799 / month'">$399 / month</p>
+                </div>
+
+                <div class="space-y-2.5 px-4 py-4 md:px-5">
+                    {% for feature in enterpriseFeatures %}
+                        <div class="flex items-start gap-2.5">
+                            <span class="mt-1 inline-flex size-4 items-center justify-center text-brand">
+                                {{ svgIcon({ name: "check", viewBox: "0 0 16 16", class: "size-4 stroke-current" }) }}
+                            </span>
+                            <p class="flex-1 text-[var(--text-size-13)] leading-[1.35] tracking-[var(--tracking-neg-012px)] text-text-primary md:text-sm md:leading-none md:tracking-[var(--tracking-neg-01em)]">{{ feature | safe }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="space-y-4 border-t border-dashed border-border px-4 py-4 md:space-y-5 md:px-5">
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <label class="inline-flex shrink-0 cursor-pointer items-center">
+                                <input id="enterprise-yearly" type="checkbox" :checked="billing === 'yearly'" @change="billing = 'yearly'" class="peer sr-only" aria-label="Yearly Plan" />
+                                <span class="inline-flex size-4 items-center justify-center rounded-full border border-border bg-white peer-checked:border-white peer-checked:bg-brand">
+                                    <span class="size-[var(--spacing-indicator-dot)] rounded-full bg-white opacity-0 transition duration-200 peer-checked:opacity-100"></span>
+                                </span>
+                            </label>
+                            <label for="enterprise-yearly" class="flex-1 cursor-pointer text-sm leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">Yearly Plan</label>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">$399 / month</p>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-muted line-through">$799 / month</p>
+                            <span class="rounded bg-brand px-1.5 py-1 text-xs leading-none tracking-[var(--tracking-neg-01em)] text-white">50% off</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <label class="inline-flex shrink-0 cursor-pointer items-center">
+                                <input id="enterprise-monthly" type="checkbox" :checked="billing === 'monthly'" @change="billing = 'monthly'" class="peer sr-only" aria-label="Monthly Plan" />
+                                <span class="inline-flex size-4 items-center justify-center rounded-full border border-border bg-white peer-checked:border-white peer-checked:bg-brand">
+                                    <span class="size-[var(--spacing-indicator-dot)] rounded-full bg-white opacity-0 transition duration-200 peer-checked:opacity-100"></span>
+                                </span>
+                            </label>
+                            <label for="enterprise-monthly" class="flex-1 cursor-pointer text-sm leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">Monthly Plan</label>
+                            <p class="text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary">$799 / month</p>
+                        </div>
+                    </div>
+
+                    {% call button({ color: "outline", class: "btn-sm w-full justify-center border-0 bg-surface-strong text-white hover:bg-surface-strong/90" }) %}
+                        <span x-text="billing === 'yearly' ? 'Pay $4,788 for yearly plan' : 'Pay $799 for monthly plan'">Pay $4,788 for yearly plan</span>
+                    {% endcall %}
+                </div>
+            </div>
+        </article>
+    </div>
+</article>

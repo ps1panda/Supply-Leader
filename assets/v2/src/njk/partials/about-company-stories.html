@@ -1,4 +1,3 @@
-{% from "components/about-story-card.html" import aboutStoryCard %}
 {% from "components/button.html" import button %}
 
 {% set stories = [
@@ -103,10 +102,16 @@
                 :class="shown ? 'translate-x-0 opacity-100 blur-0' : '{{ '-translate-x-6' if story.reverse else 'translate-x-6' }} opacity-0 blur-sm'"
                 class="{{ 'xl:order-1' if story.reverse else '' }} w-full transition duration-700 max-xl:mx-auto"
             >
-                {{ aboutStoryCard({
-                    image: story.image,
-                    class: 'aspect-[1.28/1] rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]'
-                }) }}
+                <div class="card relative aspect-[1.28/1] overflow-hidden rounded-[var(--radius-card)] border border-border md:aspect-[728/418.3908] xl:w-full xl:aspect-[87/50] max-xl:mx-auto max-xl:max-w-[var(--spacing-story-media-mobile)]">
+                    <div class="absolute inset-0">
+                        <img
+                            src="{{ story.image }}"
+                            alt=""
+                            class="size-full object-contain object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             </div>
         </article>
     {% endfor %}
@@ -134,7 +139,7 @@
                 <p>You don't need a big team, we will cover all your needs in market analysis, manufacturers search, product branding and worldwide delivery.</p>
             </div>
             {% call button({
-                class: "button-compact-md btn-sm mx-auto xl:btn-lg",
+                class: "btn-sm mx-auto px-3 text-xs font-semibold xl:btn-lg",
                 attrs: {
                     "@click": "$dispatch('open-modal')"
                 }

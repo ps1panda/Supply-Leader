@@ -3,9 +3,9 @@
 
 {% call container({
     tag: "header",
-    class: "flex items-center justify-between gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-6 xl:gap-10"
+    class: "relative z-20 px-5 pt-5 flex items-center justify-between gap-4 text-white md:grid md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-5 xl:gap-5"
 }) %}
-    <a href="#" class="shrink-0">
+    <a href="/src/njk/pages/index.html" class="shrink-0">
         <img
             src="../../img/header/logo-supply-leader.png"
             alt="Supply Leader"
@@ -14,16 +14,55 @@
         />
     </a>
 
-    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[var(--spacing-header-search-md)] md:justify-self-center xl:max-w-[var(--spacing-header-search-xl)]">
-        <button type="button" class="btn-gray h-9 shrink-0 text-sm font-medium leading-none tracking-[-0.01em]">
-            All categories
-        </button>
-        <label class="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[var(--spacing-radius-control)] border p-2 [background-color:color-mix(in_srgb,white_20%,transparent)] [border-color:color-mix(in_srgb,white_10%,transparent)]">
+    <div class="hidden min-w-0 items-center gap-5 md:flex md:w-full md:max-w-[var(--spacing-header-search-md)] md:justify-self-center xl:max-w-[720px]">
+        <div x-data="{ open: false }" class="relative shrink-0">
+            <button
+                type="button"
+                class="btn-gray h-9 shrink-0 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)]"
+                @click="open = !open"
+                :aria-expanded="open.toString()"
+                aria-haspopup="menu"
+            >
+                All categories
+            </button>
+            <div
+                x-cloak
+                x-show="open"
+                x-transition:enter="transition duration-200"
+                x-transition:enter-start="opacity-0 translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-1"
+                @click.outside="open = false"
+                @keydown.escape.window="open = false"
+                class="absolute left-0 top-full z-30 mt-2 min-w-52 overflow-hidden rounded-[16px] border border-border bg-white p-1 shadow-lg"
+                role="menu"
+            >
+                <a
+                    href="/src/njk/pages/index.html"
+                    class="block rounded-[12px] px-3 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary transition duration-200 hover:bg-surface"
+                    @click="open = false"
+                    role="menuitem"
+                >
+                    Home
+                </a>
+                <a
+                    href="/src/njk/pages/about-company.html"
+                    class="block rounded-[12px] px-3 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-text-primary transition duration-200 hover:bg-surface"
+                    @click="open = false"
+                    role="menuitem"
+                >
+                    About Company
+                </a>
+            </div>
+        </div>
+        <label class="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[var(--spacing-radius-control)] border p-2 [background-color:color-mix(in_srgb,white_20%,transparent)] [border-color:color-mix(in_srgb,white_10%,transparent)] xl:w-[600px] xl:flex-none">
             {{ svgIcon({ name: "search", class: "size-5 shrink-0 stroke-current text-white/80" }) }}
             <input
                 type="search"
                 placeholder="Search"
-                class="w-full border-0 bg-transparent p-0 text-sm leading-none tracking-[-0.01em] text-white outline-none placeholder:text-white/60"
+                class="w-full border-0 bg-transparent p-0 text-sm leading-none tracking-[var(--tracking-neg-01em)] text-white outline-none placeholder:text-white/60"
             />
             <span class="flex items-center justify-center rounded-[var(--spacing-radius-control-sm)] bg-white/10 p-1 text-white/80">
                 {{ svgIcon({ name: "camera", class: "size-4 stroke-current" }) }}
@@ -31,11 +70,11 @@
         </label>
     </div>
 
-    <div class="flex items-center gap-2.5 shrink-0">
+    <div class="flex items-center gap-2 shrink-0 xl:gap-5">
         <a href="#" class="hidden items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white max-md:inline-flex" aria-label="Open search">
             {{ svgIcon({ name: "search", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
         </a>
-        <nav class="hidden items-center gap-2.5 text-white/80 md:flex">
+        <nav class="hidden items-center gap-2 text-white/80 md:flex xl:gap-[10px]">
             <a href="#" class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] p-2 text-white/80 transition duration-200 hover:bg-white/10 hover:text-white">
                 {{ svgIcon({ name: "box", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
             </a>
@@ -46,11 +85,11 @@
                 {{ svgIcon({ name: "cart", class: "size-[var(--spacing-icon-sm)] stroke-current" }) }}
             </a>
         </nav>
-        <div class="flex items-center">
-            <span class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] border bg-brand px-2 py-2.5 text-sm font-medium leading-none tracking-[-0.01em] text-white [border-color:color-mix(in_srgb,white_50%,transparent)]">
+        <div class="flex items-center gap-[2px]">
+            <span class="inline-flex items-center justify-center rounded-[var(--spacing-radius-control)] border bg-brand px-2 py-2.5 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-white [border-color:color-mix(in_srgb,white_50%,transparent)]">
                 CN
             </span>
-            <span class="hidden rounded-md px-2 py-2 text-sm font-medium leading-none tracking-[-0.01em] text-white xl:inline-flex">
+            <span class="hidden rounded-md px-2 py-2 text-sm font-medium leading-none tracking-[var(--tracking-neg-01em)] text-white xl:inline-flex">
                 Company Name
             </span>
         </div>

@@ -1,0 +1,153 @@
+{% set supplierImageByImages = "../../img/home/supplier-by-images.png" %}
+{% set supplierImageByKeywords = "../../img/home/supplier-by-keywords.png" %}
+{% set supplierImageByManager = "../../img/home/supplier-by-manager.png" %}
+{% set supplierOptions = [
+    {
+        title: "By images",
+        text: "Automatic search for White Label manufacturers by product images.",
+        image: supplierImageByImages
+    },
+    {
+        title: "By keywords",
+        text: "Automatic search for White Label manufacturers by Amazon product ad keywords.",
+        image: supplierImageByKeywords
+    },
+    {
+        title: "By manager",
+        text: "Manual search for original US-based manufacturers by our manager. Free shipping within the US 90% of the time.",
+        image: supplierImageByManager
+    }
+] %}
+
+<article class="flex flex-col gap-4 rounded-[32px] border border-border bg-surface-alt px-4 py-5 md:gap-5 md:px-5 md:py-5 xl:gap-[30px] xl:rounded-[40px] xl:px-10 xl:py-10">
+    <h2 class="max-w-[328px] text-text-primary [font-size:var(--text-size-32)] font-medium leading-none tracking-[-0.06em] md:hidden xl:block xl:max-w-none xl:[font-size:var(--text-size-48)] xl:tracking-[var(--tracking-neg-288px)]">
+        A variety of options for finding suppliers
+    </h2>
+
+    <div x-data="horizontalPager()" class="flex flex-col gap-4 md:hidden">
+        <div
+            x-ref="track"
+            class="-mx-4 flex snap-x snap-mandatory gap-[10px] overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+            {% for option in supplierOptions %}
+                <article class="w-[240px] shrink-0 snap-start overflow-hidden rounded-[20px] border border-border bg-white">
+                    <div class="aspect-[240/260]">
+                        <img
+                            src="{{ option.image }}"
+                            alt=""
+                            class="size-full object-cover object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="space-y-2 px-4 pt-4 pb-5">
+                        <h3 class="text-text-primary text-2xl font-semibold leading-none tracking-[var(--tracking-neg-024px,-0.24px)]">
+                            {{ option.title }}
+                        </h3>
+                        <p class="text-text-secondary [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)]">
+                            {{ option.text }}
+                        </p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        <div class="flex items-center justify-center gap-2">
+            <button
+                type="button"
+                class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                @click="scrollByPage(-1)"
+                :disabled="activeIndex === 0"
+                aria-label="Previous supplier option"
+            >
+                <img src="../../img/common/btn-show-more.svg" alt="" class="size-9" loading="lazy" />
+            </button>
+            <button
+                type="button"
+                class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                @click="scrollByPage(1)"
+                :disabled="activeIndex === total - 1"
+                aria-label="Next supplier option"
+            >
+                <img src="../../img/common/btn-show-more.svg" alt="" class="size-9 rotate-180" loading="lazy" />
+            </button>
+        </div>
+    </div>
+
+    <div x-data="horizontalPager()" class="hidden md:flex md:flex-col md:gap-5 xl:hidden">
+        <div class="flex items-center justify-between gap-4">
+            <h2 class="max-w-[586px] text-text-primary text-[30px] font-medium leading-none tracking-[-0.3px]">
+                A variety of options for finding suppliers
+            </h2>
+
+            <div class="flex shrink-0 items-center gap-2.5">
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(-1)"
+                    :disabled="activeIndex === 0"
+                    aria-label="Previous supplier option"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9" loading="lazy" />
+                </button>
+                <button
+                    type="button"
+                    class="inline-flex size-9 items-center justify-center transition duration-200 disabled:cursor-default disabled:opacity-50"
+                    @click="scrollByPage(1)"
+                    :disabled="activeIndex === total - 1"
+                    aria-label="Next supplier option"
+                >
+                    <img src="../../img/common/btn-show-more.svg" alt="" class="size-9 rotate-180" loading="lazy" />
+                </button>
+            </div>
+        </div>
+
+        <div
+            x-ref="track"
+            class="flex snap-x snap-mandatory gap-[10px] overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+            {% for option in supplierOptions %}
+                <article class="w-[400px] shrink-0 snap-start overflow-hidden rounded-[20px] border border-border bg-white">
+                    <div class="aspect-[400/260]">
+                        <img
+                            src="{{ option.image }}"
+                            alt=""
+                            class="size-full object-cover object-center"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="space-y-2 px-5 pt-4 pb-5">
+                        <h3 class="text-text-primary text-xl font-semibold leading-none tracking-[-0.2px]">
+                            {{ option.title }}
+                        </h3>
+                        <p class="text-text-secondary text-sm leading-[1.35] tracking-[-0.14px]">
+                            {{ option.text }}
+                        </p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="hidden gap-[10px] xl:grid xl:grid-cols-3 xl:gap-5">
+        {% for option in supplierOptions %}
+            <article class="overflow-hidden rounded-[20px] border border-border bg-white">
+                <div class="aspect-[573/240] md:aspect-[226/180] xl:aspect-[573/380]">
+                    <img
+                        src="{{ option.image }}"
+                        alt=""
+                        class="size-full object-cover object-center"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="space-y-3 px-5 pt-4 pb-5 md:px-5 md:pt-4 md:pb-5 xl:px-10 xl:pt-0 xl:pb-10">
+                    <h3 class="text-text-primary [font-size:var(--text-size-28)] font-semibold leading-none tracking-[var(--tracking-neg-028px)] md:text-xl md:tracking-[-0.2px] xl:text-[28px] xl:tracking-[var(--tracking-neg-028px)]">
+                        {{ option.title }}
+                    </h3>
+                    <p class="text-text-secondary [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)] md:text-sm md:leading-[1.35] md:tracking-[-0.14px]">
+                        {{ option.text }}
+                    </p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</article>

@@ -1,0 +1,45 @@
+{% set businessCardMap = "../../img/home/business-map.png" %}
+{% set businessCardCatalog = "../../img/home/business-catalog.png" %}
+{% set businessCards = [
+    {
+        title: "100+ Countries<br class=\"max-xl:hidden\" />and Regios for shipping",
+        text: "Prices are lower because you side step resellers and trading companies and purchase your products directly from the original suppliers and manufacturers.",
+        image: businessCardMap,
+        contentClass: "mt-[180px] md:mt-[200px] xl:mt-0 xl:h-full xl:justify-end",
+        maxWidthClass: "xl:max-w-[470px]"
+    },
+    {
+        title: "180+ Product Categories",
+        text: "Prices are lower because you side step resellers and trading companies and purchase your products directly from the original suppliers and manufacturers.",
+        image: businessCardCatalog,
+        contentClass: "",
+        maxWidthClass: "max-w-[420px] xl:max-w-[470px]"
+    }
+] %}
+
+<article class="flex flex-col gap-4 md:gap-6 xl:gap-[30px]">
+    <h2 class="max-w-[328px] text-text-primary [font-size:var(--text-size-32)] font-medium leading-none tracking-[-0.06em] md:max-w-[460px] md:text-[30px] md:tracking-[-0.3px] xl:max-w-none xl:[font-size:var(--text-size-48)] xl:tracking-[var(--tracking-neg-288px)]">
+        Expanded opportunities for your business
+    </h2>
+
+    <div class="grid gap-4 xl:grid-cols-2 xl:gap-5">
+        {% for card in businessCards %}
+            <article class="relative overflow-hidden rounded-[20px] border border-border bg-white p-5 md:min-h-[320px] md:p-5 xl:aspect-[910/500] xl:min-h-0 xl:p-10">
+                <img
+                    src="{{ card.image }}"
+                    alt=""
+                    class="absolute inset-0 size-full object-cover object-center"
+                    loading="lazy"
+                />
+                <div class="relative z-10 flex flex-col gap-3 {{ card.contentClass }} {{ card.maxWidthClass }}">
+                    <h3 class="text-text-primary [font-size:var(--text-size-28)] font-semibold leading-none tracking-[var(--tracking-neg-028px)] md:text-xl md:tracking-[-0.2px] xl:text-[28px] xl:tracking-[var(--tracking-neg-028px)]">
+                        {{ card.title | safe }}
+                    </h3>
+                    <p class="text-text-secondary [font-size:var(--text-size-13)] leading-[1.42] tracking-[var(--tracking-neg-012px)] md:text-sm md:leading-[1.35] md:tracking-[-0.14px]">
+                        {{ card.text }}
+                    </p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</article>

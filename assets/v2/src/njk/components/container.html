@@ -5,7 +5,7 @@
         attrs: props.attrs | default({})
     } %}
     <{{ props.tag }}
-        class="{{ props.class | twMerge('mx-auto w-[min(calc(100%-40px),var(--spacing-container))]') }}"
+        class="{{ props.class | twMerge('mx-auto w-full max-w-[var(--spacing-container)]') }}"
         {{ props.attrs | renderAttrs | safe }}
     >
         {{ caller() }}

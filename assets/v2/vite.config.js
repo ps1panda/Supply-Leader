@@ -52,6 +52,7 @@ export default defineConfig({
     rollupOptions: {
       input: [
         resolve(__dirname, "index.html"),
+        resolve(__dirname, "src/njk/pages/index.njk.html"),
         resolve(__dirname, "src/njk/pages/about-company.njk.html")
       ]
     }
